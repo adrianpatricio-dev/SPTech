@@ -39,12 +39,8 @@ Manter meus estudos organizados em um único lugar, permitindo acompanhar minha 
 
 As tecnologias utilizadas podem variar conforme a disciplina e o exercício. Entre elas:
 
-* Java
 * JavaScript
-* HTML & CSS
 * SQL
-* Git & GitHub
-* VS Code
 
 ## 📈 Progresso
 
