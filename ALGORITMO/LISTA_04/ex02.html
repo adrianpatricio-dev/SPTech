@@ -3,38 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de notas</title>
+    <title>Controle de refrigerante</title>
 </head>
 <body>
-    <h3>Controle de notas</h3>
+    <h3>Controle de refrigerante</h3>
 
-    Digite nota 1 <br>
-    <input type="text" id="ipt_nota1"> <br>
+    Digite quantas latinhas de refrigerante toma por dia <br>
+    <input type="text" id="ipt_latinhasPorDia"> <br> <br>
 
-    Digite nota 2 <br>
-    <input type="text" id="ipt_nota2"> <br>
-
-    Digite nota 3 <br>
-    <input type="text" id="ipt_nota3"> <br> <br>
-
-    <button onclick="analisarDesempenho()">ANALISAR DESEMPENHO</button> <br> <br>
+    <button onclick="calcularRefris()">QUANTOS REFRIS?</button> <br> <br>
 
     <span id="msg"></span>
 </body>
 </html>
 
 <script>
-    function analisarDesempenho() {
-        let nota1 = Number(ipt_nota1.value);
-        let nota2 = Number(ipt_nota2.value);
-        let nota3 = Number(ipt_nota3.value);
-        
-        let media = (nota1 + nota2 + nota3) / 3;
+    function calcularRefris() {
+        let latinhasPorDia = Number(ipt_latinhasPorDia.value);
 
-        msg.innerHTML += `Sua média foi de ${media} <br>`;
+        let latinhasPorAno = latinhasPorDia * 365;
 
-        if (media > 9.4) {
-            msg.innerHTML += `Parabéns, você é fora de série! <br>`;
+        msg.innerHTML = ``;
+
+        msg.innerHTML += `Você consome ${latinhasPorAno} por ano! <br>`;
+
+        if (latinhasPorAno > 500) {
+            msg.innerHTML += `Cuidado com a diabetes!`;
         }
     }
 </script>

@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rola a pizza?</title>
+    <title>Controle de notas</title>
 </head>
 <body>
-    <h3>Rola a pizza?</h3>
+    <h3>Controle de notas</h3>
 
-    Digite o valor da pizza <br>
-    <input type="text" id="ipt_valorPizza"> <br>
+    Digite nota 1 <br>
+    <input type="text" id="ipt_nota1"> <br>
 
-    Digite a quantidade amigos reunidos <br>
-    <input type="text" id="ipt_amigosReunidos"> <br> <br>
+    Digite nota 2 <br>
+    <input type="text" id="ipt_nota2"> <br>
 
-    <button onclick="calcularValor()">ROLA A PIZZA?</button> <br> <br>
+    Digite nota 3 <br>
+    <input type="text" id="ipt_nota3"> <br> <br>
+
+    <button onclick="analisarDesempenho()">ANALISAR DESEMPENHO</button> <br> <br>
 
     <span id="msg"></span>
 </body>
 </html>
 
 <script>
-    function calcularValor() {
-        let valorDaPizza = Number(ipt_valorPizza.value);
-        let amigosReunidos = Number(ipt_amigosReunidos.value);
+    function analisarDesempenho() {
+        let nota1 = Number(ipt_nota1.value);
+        let nota2 = Number(ipt_nota2.value);
+        let nota3 = Number(ipt_nota3.value);
+        
+        let media = (nota1 + nota2 + nota3) / 3;
 
-        let valorQueCadaAmigoVaiPagar = valorDaPizza / amigosReunidos;
+        msg.innerHTML += `Sua média foi de ${media} <br>`;
 
-        msg.innerHTML += `Cada amigo vai pagar R$${valorQueCadaAmigoVaiPagar} pela pizza <br>`;
-
-        if (valorQueCadaAmigoVaiPagar > 20) {
-            msg.innerHTML += `Deu ruim! Pizza muito cara!`;
+        if (media > 9.4) {
+            msg.innerHTML += `Parabéns, você é fora de série! <br>`;
         }
     }
 </script>

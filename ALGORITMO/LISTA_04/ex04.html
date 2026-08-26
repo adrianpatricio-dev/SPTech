@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conta de luz</title>
+    <title>Rola a pizza?</title>
 </head>
 <body>
-    <h3>Conta de luz</h3>
+    <h3>Rola a pizza?</h3>
 
-    Digite a quantidade de KWh consumida no mês <br>
-    <input type="text" id="ipt_kwhMes"> <br> <br>
+    Digite o valor da pizza <br>
+    <input type="text" id="ipt_valorPizza"> <br>
 
-    <button onclick="calcularContaLuz()">CALCULAR CONTA DE LUZ</button> <br> <br>
+    Digite a quantidade amigos reunidos <br>
+    <input type="text" id="ipt_amigosReunidos"> <br> <br>
+
+    <button onclick="calcularValor()">ROLA A PIZZA?</button> <br> <br>
 
     <span id="msg"></span>
 </body>
 </html>
 
 <script>
-    function calcularContaLuz() {
-        let kwhPorMes = Number(ipt_kwhMes.value);
+    function calcularValor() {
+        let valorDaPizza = Number(ipt_valorPizza.value);
+        let amigosReunidos = Number(ipt_amigosReunidos.value);
 
-        let valorContaLuz = kwhPorMes * 0.85;
+        let valorQueCadaAmigoVaiPagar = valorDaPizza / amigosReunidos;
 
-        if (kwhPorMes < 100) {
-            let desconto = valorContaLuz * 0.1;
+        msg.innerHTML += `Cada amigo vai pagar R$${valorQueCadaAmigoVaiPagar} pela pizza <br>`;
 
-            let pagarValor = valorContaLuz - desconto;
-
-            msg.innerHTML = `Você deve pagar R$${pagarValor}`;
-        } else {
-            msg.innerHTML = `Você deve pagar R$${valorContaLuz}`;
+        if (valorQueCadaAmigoVaiPagar > 20) {
+            msg.innerHTML += `Deu ruim! Pizza muito cara!`;
         }
     }
 </script>
