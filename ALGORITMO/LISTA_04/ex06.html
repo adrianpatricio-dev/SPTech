@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financiamento da casa própria</title>
+</head>
+<body>
+    <h3>Financiamento da casa própria</h3>
+
+    Digite o valor da renda familiar <br>
+    <input type="text" id="ipt_rendaFamiliar"> <br>
+
+    Digite o valor da prestação <br>
+    <input type="text" id="ipt_valorPrestacao"> <br> <br>
+
+    <button onclick="verificarFinanciamento()">VERIFICAR FINANCIAMENTO</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarFinanciamento() {
+        let rendaFamiliar = Number(ipt_rendaFamiliar.value);
+        let valorPrestacao = Number(ipt_valorPrestacao.value);
+
+        let prestacaoPorcentagem = Number(((valorPrestacao * 100) / rendaFamiliar).toFixed(2));
+
+        msg.innerHTML = ``;
+
+        msg.innerHTML += `A prestação corresponde a ${prestacaoPorcentagem}% da renda familiar <br>`;
+
+        if (prestacaoPorcentagem > 0.3) {
+            msg.innerHTML += `Será necessário complementar a renda familiar`;
+        }
+    }
+</script>
