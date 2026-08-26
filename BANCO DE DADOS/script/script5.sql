@@ -1,0 +1,94 @@
+USE sprint1;
+
+CREATE TABLE aluno (
+	ra CHAR(8) PRIMARY KEY,
+    nome VARCHAR(40) NOT NULL, -- TEXTO VARIÁVEL E OBIRGATÓRIO,
+    email VARCHAR(50) UNIQUE, -- NÃO PODE REPETIR
+    dtNasc DATE
+);
+
+DESCRIBE aluno; -- MOSTRA METADADOS DA TABELA
+
+SHOW TABLES; -- MOSTRA OS METADADOS DO BANCO DE DADOS "sprint1"
+
+INSERT INTO aluno (ra, nome, email, dtNasc) VALUE
+	('01262030', 'Adrian Patrício da Silva', 'adrian.silva@sptech.school', '2006-08-12');
+    
+SELECT * FROM aluno;
+
+-- INSERINDO TODOS OS DADOS OBRIGATÓRIOS
+
+INSERT INTO aluno (ra, nome) VALUES 
+	('01262031', 'Gabriel'),
+    ('01262032', 'Victor'),
+    ('01262033', 'Gustavo'),
+    ('01262034', 'Leonardo');
+    
+SELECT * FROM aluno_ads;
+
+-- NÃO ALTERA O DADO ORIGINAL
+
+-- IFNULL : FUNÇÃO USADA SOMENTE NO SELECT
+SELECT 
+	IFNULL(email, 'Sem email'), 
+    IFNULL(dtNasc, 'Sem data'),
+nome FROM aluno;
+
+-- TENTATIVA DE INSERIR APENAS UM DOS DADOS OBRIGATÓRIOS
+INSERT INTO aluno (ra) VALUE
+	('01262066');
+    
+-- EXIBIR DADOS DE UM ALUNO
+SELECT * FROM aluno
+	WHERE ra = '01262030';
+
+-- ATUALIZAR OS DADOS DO ALUNO DE RA 01262030
+UPDATE aluno SET email = 'adrian@sptech.school'
+	WHERE ra = '01262030';
+
+-- ATUALIZAR DOIS DADOS DE UM ALUNO
+UPDATE aluno SET email = 'victor@sptech.school', dtNasc = '2008-01-01'
+	WHERE ra = '01262032';
+    
+-- ALTERAR A ESTRUTURA DA TABELA ADD COL UNA NOTA NA TABELA ALUNO
+ALTER TABLE aluno ADD COLUMN nota DECIMAL(3,2);
+
+ALTER TABLE aluno ADD COLUMN nota_float FLOAT;
+
+UPDATE aluno SET nota = 9.99, nota_float = 9.76666
+	WHERE ra = '01262030';
+
+-- ALTERAR O NOME DA COLUNA
+ALTER TABLE aluno RENAME COLUMN dtNasc TO dataNascimento;
+
+-- ALTERAR O TIPO DA COLUNA
+ALTER TABLE aluno MODIFY COLUMN dataNascimento DATETIME;
+
+-- ALTERAR NOME DA TABELA
+ALTER TABLE aluno RENAME TO aluno_ads;
+
+-- REMOVENDO UMA COLUNA DA TABELA ALUNO_ADS;
+ALTER TABLE aluno_ads DROP COLUMN nota_float;
+
+SELECT * FROM aluno_ads;
+
+-- ALTERANDO A TABELA - ADD A COLUNA ATIVO
+ALTER TABLE aluno_ads ADD COLUMN ativo TINYINT;
+
+-- ATUALIZAR O CAMPO ATIVO PARA TODOS OS REGISTROS
+UPDATE aluno_ads SET ativo = 1
+	WHERE ra LIKE '01262%';
+    
+-- CRIANDO UMA COLUNA DE GÊNERO
+ALTER TABLE aluno_ads ADD COLUMN genero CHAR(1);
+
+-- CRIANDO RESTRIÇÃO NO CAMPO GENEROatletaatleta
+ALTER TABLE aluno_ads ADD CONSTRAINT chGenero CHECK(genero = 'm' OR genero = 'f' OR genero = 'o');
+
+UPDATE aluno_ads SET genero = 'm' WHERE ra = '01262030';
+
+-- EXCLUIR UM REGISTRO DA TABELA ALUNO_ADS
+DELETE FROM aluno_ads WHERE ra = '01262031';
+
+-- EXCLUIR TODOS OS REGISTROS DA TABELA ALUNO_ADS
+TRUNCATE TABLE aluno_ads;
