@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta de luz</title>
+</head>
+<body>
+    <h3>Conta de luz</h3>
+
+    Digite a quantidade de KWh consumida no mês <br>
+    <input type="text" id="ipt_kwhMes"> <br> <br>
+
+    <button onclick="calcularContaLuz()">CALCULAR CONTA DE LUZ</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcularContaLuz() {
+        let kwhPorMes = Number(ipt_kwhMes.value);
+
+        let valorContaLuz = kwhPorMes * 0.85;
+
+        if (kwhPorMes < 100) {
+            let desconto = valorContaLuz * 0.1;
+
+            let pagarValor = valorContaLuz - desconto;
+
+            msg.innerHTML = `Você deve pagar R$${pagarValor}`;
+        } else {
+            msg.innerHTML = `Você deve pagar R$${valorContaLuz}`;
+        }
+    }
+</script>
