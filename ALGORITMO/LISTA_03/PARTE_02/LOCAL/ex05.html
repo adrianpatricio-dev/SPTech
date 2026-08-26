@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fases do sono</title>
+</head>
+<body>
+    Quantas horas você dorme por dia
+    <input type="text" id="ipt_horasDormidas"> <br> <br>
+
+    <button onclick="calcularSono()">CALCULAR SONO</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcularSono() {
+        let horas = Number(ipt_horasDormidas.value);
+
+        let fase1Perct = horas * 0.05;
+
+        let fase2Perct = horas * 0.45;
+
+        let fase3Perct = horas * 0.3;
+
+        let faseREMPerct = horas * 0.2;
+
+        msg.innerHTML = `
+            Ao dormir ${horas} horas, você dormiu: <br>
+            ${fase1Perct} horas na fase 1 <br>
+            ${fase2Perct} horas na fase 2 <br>
+            ${fase3Perct} horas na fase 3 <br>
+            ${faseREMPerct} horas na fase REM`;
+    }
+</script>

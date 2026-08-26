@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de peso e altura</title>
+</head>
+<body>
+    <h1>Calculadora de peso e altura</h1>
+
+    <span>Peso</span>
+    <input type="text" id="input_peso"> <br>
+
+    <span>Altura</span>
+    <input type="text" id="input_altura"> <br>
+
+    <button onclick="mostrarInfo()">FALE COMIGO</button>
+</body>
+</html>
+
+<script>
+    function mostrarInfo() {
+        alert(`Você pesa ${input_peso.value} kg e tem ${input_altura.value} m de altura`);
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão do TVM de Caldeira</title>
+</head>
+<body>
+    <h3>Gestão do TVM de Caldeira</h3>
+
+    Quantidade de dias em operação
+    <input type="text" id="ipt_dias_operacao">
+
+    <button onclick="processarDIAS()">PROCESSAR DIAS</button> <br>
+
+    <button onclick="stop()">STOP OPERAÇÃO</button>
+
+    <button onclick="reiniciar()">REINICIAR PROCESSO</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let horas = 1000;
+
+    function processarDIAS() {
+        let dias_operacao = Number(ipt_dias_operacao.value);
+
+        let acumulado = dias_operacao * 24
+
+        let horas_anterior = horas;
+
+        horas = horas - acumulado;
+
+        msg.innerHTML += `O TVM anterior era de ${horas_anterior} horas e após ${dias_operacao} dias de operação o TVM passou para ${horas} horas. <br>`;
+    }
+
+    function stop() {
+        let horas_anterior = horas;
+
+        horas = horas - 100;
+
+        msg.innerHTML += `O TVM anterior era de ${horas_anterior} horas, após o Stop de operação o TVM passou para ${horas} horas. <br>`;
+    }
+
+    function reiniciar() {
+        horas_anterior = horas;
+
+        msg.innerHTML = `Ainda existia  ${horas_anterior} horas, com o reinicio do processo, o TVM passou para 1000 horas. <br>`;
+    }
+</script>

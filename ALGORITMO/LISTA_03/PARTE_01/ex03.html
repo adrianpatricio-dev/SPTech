@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economia com o Bilhete Único</title>
+</head>
+<body>
+    <h2>Economia com o Bilhete Único</h2>
+
+    <span>Digite o valor da passagem</span>
+    <input type="text" id="valorPassagem"> <br>
+
+    <span>Quantas viagens você fará por mês</span>
+    <input type="text" id="viagensMes"> <br>
+
+    <button onclick="verEconomia()">VER ECONOMIA</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verEconomia() {
+        msg.innerHTML = `Você economizará R$${((Number(valorPassagem.value) / 2) * Number(viagensMes.value)).toFixed(2)} por mês`;
+    }
+</script>

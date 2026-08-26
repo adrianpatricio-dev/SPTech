@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota da Atividade Avaliativa</title>
+</head>
+<body>
+    <h2>Nota da Atividade Avaliativa</h2>
+
+    Nome
+    <input type="text" id="ipt_nomeAluno"> <br>
+
+    Atividade 1
+    <input type="text" id="ipt_atv1"> <br>
+
+    Atividade 2
+    <input type="text" id="ipt_atv2"> <br>
+
+    Atividade 3
+    <input type="text" id="ipt_atv3"> <br> <br>
+
+    <button onclick="mostrarNota()">MOSTRAR NOTA</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrarNota() {
+        let nome = ipt_nomeAluno.value;
+        let a1 = Number(ipt_atv1.value);
+        let a2 = Number(ipt_atv2.value);
+        let a3 = Number(ipt_atv3.value);
+
+        let soma = a1 + a2 + a3;
+
+        let media = soma / 3;
+
+        msg.innerHTML = `
+            A soma das suas três atividades é: ${soma} <br>
+            ${nome}, a média das suas atividades é: ${media}`;
+    }
+</script>

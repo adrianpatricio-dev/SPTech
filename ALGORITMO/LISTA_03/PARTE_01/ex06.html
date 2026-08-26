@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+</head>
+<body>
+    <h2>Conversor de Moedas da Barbie: De "B-Dollars" para Real</h2>
+
+    <span>Digite a quantidade de B-Dollars que a Barbie deseja converter</span>
+    <input type="text" id="bDollars"> <br>
+
+    <span>Digite o valor da cotação (1 B-Dollar em reais)</span>
+    <input type="text" id="cotacao"> <br>
+
+    <button onclick="calcularCambio()">CALCULAR CÂMBIO</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcularCambio() {
+        msg.innerHTML = `Ao converter seus B-Dollars, o dinheiro disponível será: R$${((bDollars.value * cotacao.value) - 5.50).toFixed(2)}`;
+    }
+</script>

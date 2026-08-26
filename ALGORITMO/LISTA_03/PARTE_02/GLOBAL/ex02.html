@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depósito e retirada de dinheiro</title>
+</head>
+<body>
+    <h3>Depósito e retirada de dinheiro</h3>
+
+    Digite o valor que deseja depositar/ retirar
+    <input type="text" id="ipt_acao"> <br>
+
+    <button onclick="depositar()">DEPOSITAR</button>
+
+    <button onclick="retirar()">RETIRAR</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let saldo = 0;
+
+    function depositar() {
+        let acao = Number(ipt_acao.value);
+
+        saldo = saldo + acao;
+
+        msg.innerHTML = `Depósito de R$${acao} efetuado! Saldo atual: R$${saldo}`;
+    }
+
+    function retirar() {
+        let acao = Number(ipt_acao.value);
+
+        saldo = saldo - acao;
+
+        msg.innerHTML = `Retirada de R$${acao} efetuado! Saldo atual: R$${saldo}`;
+    }
+</script>
