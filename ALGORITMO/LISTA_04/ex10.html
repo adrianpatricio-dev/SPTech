@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permissão para festa</title>
+</head>
+<body>
+    <h3>Permissão para festa</h3>
+
+    Digite sua idade <br>
+    <input type="text" id="ipt_idade"> <br> <br>
+
+    <button onclick="irPraFesta()">IR A FESTA</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function irPraFesta() {
+        let idade = Number(ipt_idade.value);
+
+        msg.innerHTML = ``;
+
+        if (idade < 18) {
+            msg.innerHTML += `Pedir permissão pro responsável <br>`;
+        } else {
+            msg.innerHTML += `Levar Documentos <br>`;
+        }
+
+        msg.innerHTML += `#partiuFesta`;
+    }
+</script>
