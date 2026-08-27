@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheque especial</title>
+</head>
+<body>
+    <h3>Cheque especial</h3>
+
+    Digite o saldo conta <br>
+    <input type="text" id="ipt_saldoConta"> <br>
+
+    Digite o valor a retirar da conta <br>
+    <input type="text" id="ipt_retirarConta"> <br> <br>
+
+    <button onclick="analisarConta()">ANALISAR CONTA</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarConta() {
+        let saldoConta = Number(ipt_saldoConta.value); 
+        let retirarConta = Number(ipt_retirarConta.value);
+
+        let saldoAtual =  saldoConta - retirarConta;
+
+        msg.innerHTML = `O saldo atual da conta corrente é ${saldoAtual}`;
+
+        if (saldoAtual < 0) {
+            msg.innerHTML = `ENTROU NO CHEQUE ESPECIAL`;
+        }
+    }
+</script>
