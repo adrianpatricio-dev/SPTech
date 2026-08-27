@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de horas assistindo streaming</title>
+</head>
+<body>
+    <h3>Controle de horas assistindo streaming</h3>
+
+    Digite a última série que você assistiu <br>
+    <input type="text" id="ipt_serie"> <br>
+
+    Digite a quantidade de episódios que você assistiu <br>
+    <input type="text" id="ipt_episodios"> <br>
+
+    <button onclick="verificarNivel()">VERIFICAR NÍVEL</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarNivel() {
+        let serie = ipt_serie.value;
+        let episodios = Number(ipt_episodios.value);
+
+        let tempoSerie = Number(((episodios * 22) / 60).toFixed(2));
+
+        msg.innerHTML = ``;
+        
+        msg.innerHTML += `Vejo que você gosta da série ${serie} <br>`;
+
+        if (tempoSerie > 30) {
+            msg.innerHTML += `Uau, você realmente gosta dessa série!`;
+        }
+    }
+</script>
