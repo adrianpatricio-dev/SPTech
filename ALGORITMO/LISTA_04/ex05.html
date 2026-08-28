@@ -24,13 +24,9 @@
         let valorContaLuz = kwhPorMes * 0.85;
 
         if (kwhPorMes < 100) {
-            let desconto = valorContaLuz * 0.1;
-
-            let pagarValor = valorContaLuz - desconto;
-
-            msg.innerHTML = `Você deve pagar R$${pagarValor}`;
-        } else {
-            msg.innerHTML = `Você deve pagar R$${valorContaLuz}`;
+            valorContaLuz *= 0.9;
         }
+
+        msg.innerHTML = `Você deve pagar R$${valorContaLuz}`;
     }
 </script>
