@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de peso no elevador</title>
+</head>
+<body>
+    <h3>Controle de peso no elevador</h3>
+
+    <label for="ipt_homens">Quantidade de homens no elevador</label> <br>
+    <input type="text" id="ipt_homens"> <br>
+
+    <label for="ipt_mulheres">Quantidade de mulheres no elevador</label> <br>
+    <input type="text" id="ipt_mulheres"> <br><br>
+
+    <button onclick="ligarElevador()">LIGAR ELEVADOR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function ligarElevador() {
+        let homens = Number(ipt_homens.value);
+        let mulheres = Number(ipt_mulheres.value);
+        
+        homens *= 90;
+
+        mulheres *= 70;
+
+        let soma = homens + mulheres;
+
+        if (soma <= 500) {
+            msg.innerHTML = `<span style="color: green;">Elevador vai se mover, pois está com ${soma}kg</span>`;
+        } else {
+            msg.innerHTML = `<span style="color: red;">Alguém precisa descer.<br>Precisa perder ${soma - 500}kg para mover o elevador </span>`;
+        }
+    }
+</script>
