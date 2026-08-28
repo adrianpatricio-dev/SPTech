@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par ou Impar</title>
+</head>
+<body>
+    <h3>Par ou Impar</h3>
+
+    <label for="ipt_numero">Digite um número</label> <br>
+    <input type="text" id="ipt_numero"> <br><br>
+
+    <button onclick="analisar()"">ANALISAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let numero = Number(ipt_numero.value);
+
+        numero %= 2;
+
+        if (numero == 0) {
+            msg.innerHTML = `<span style="color: red;">Esse número é PAR</span>`;
+        } else {
+            msg.innerHTML = `<b style="color: blue;">Esse número é impar</b>`;
+        }
+    }
+</script>
