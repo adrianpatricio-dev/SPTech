@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação das finanças</title>
+</head>
+<body>
+    <h3>Verificação das finanças</h3>
+
+    <label for="ipt_saldo">Digite o valor do saldo em conta</label> <br>
+    <input type="text" id="ipt_saldo"> <br><br>
+
+    <button onclick="verificarMudancas()">VERIFICAR MUDANÇAS</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarMudancas() {
+        let saldo = Number(ipt_saldo.value);
+
+        if (saldo == 0) {
+            msg.innerHTML = `Conta zerada`;
+        }
+
+        if (saldo > 0) {
+            msg.innerHTML = `Saldo positivo! sorriso`;
+        }
+
+        if (saldo < 0) {
+            msg.innerHTML = `Está devendo!`;
+        }
+    }
+</script>
