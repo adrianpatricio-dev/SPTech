@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de frequência do aluno</title>
+</head>
+<body>
+    <h3>Análise de frequência do aluno</h3>
+
+    <label for="ipt_frequencia">Digite sua frequência</label> <br>
+    <input type="text" id="ipt_frequencia"> <br><br>
+
+    <button onclick="analisarFrequencia()">ANALISAR FREQUÊNCIA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarFrequencia() {
+        let frequencia = Number(ipt_frequencia.value);
+
+        if (frequencia >= 50) {
+            msg.innerHTML = `<img src="https://img.magnific.com/vetores-premium/desenho-animado-de-um-menino-estudando-em-seu-quarto_976269-600.jpg?w=2000" style="width: 100px; height: 100px;">`;
+        } else {
+            msg.innerHTML = `<img src="https://th.bing.com/th/id/R.f69ecbb647028bbf6453307c12cd04e3?rik=8Yc0RhsGEPSDTg&pid=ImgRaw&r=0" style="width: 100px; height: fit-content;">`;
+        }
+    }
+</script>
