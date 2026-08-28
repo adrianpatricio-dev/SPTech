@@ -15,7 +15,7 @@ INSERT INTO aluguel (nome, sobrenome, valor_total, status_) VALUES
 	('Beatriz', 'Souza', 500.00, 'em andamento'),
 	('Lucas', 'Pereira', 980.75, 'finalizado');
     
-SELECT 
+SELECT
 	CONCAT(nome, ' ', sobrenome) AS cliente, 
     valor_total,
     CASE
