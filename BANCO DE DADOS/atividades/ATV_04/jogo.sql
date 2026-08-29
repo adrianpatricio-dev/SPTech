@@ -10,7 +10,7 @@ CREATE TABLE jogo (
     plataforma VARCHAR(10),
     data_lancamento DATE,
     data_cadastro DATETIME,
-    modo_online CHAR(1) CONSTRAINT chOnline CHECK (modo_online IN('S', 'N'))
+    modo_online CHAR(1)
 );
 
 -- INSERÇÃO DE DADOS --
@@ -21,7 +21,7 @@ INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_ca
 
 -- 2)
 INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_cadastro, modo_online) VALUE
-    ('Minecraft', 'Sandbox', 99.90, NULL, '2011-11-18', NOW(), 'N');
+    ('Minecraft', 'Sandbox', NULL, 'PC', '2011-11-18', NOW(), 'N');
     
 -- 3)
 INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_cadastro, modo_online) VALUE 
@@ -45,8 +45,8 @@ INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_ca
     ('Doom', 'Ação', 199.90, 'PC', '2016-05-13', NOW(), 'S');
     
 -- 8)
-INSERT INTO jogo (nome_jogo, preco, plataforma, data_lancamento, data_cadastro, modo_online) VALUE
-	('Fortnite', 0.00, 'PC', '2017-07-21', '2026-08-28 20:28:00', 'S');
+INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_cadastro, modo_online) VALUE
+	('Fortnite', NULL, 0.00, 'PC', '2017-07-21', '2026-08-28 20:28:00', 'S');
     
 -- 9)
 INSERT INTO jogo (nome_jogo, genero, preco, plataforma, data_lancamento, data_cadastro, modo_online) VALUES
@@ -72,7 +72,7 @@ SELECT * FROM jogo WHERE plataforma = 'PC';
 SELECT * FROM jogo ORDER BY preco ASC;
 
 -- 6)
-SELECT * FROM jogo ORDER BY preco DESC;
+SELECT * FROM jogo ORDER BY nome_jogo DESC;
 
 -- 7)
 SELECT * FROM jogo WHERE data_lancamento > '2020-01-01';
@@ -82,17 +82,17 @@ SELECT nome_jogo, preco AS 'Valor' FROM jogo;
 
 -- 9)
 SELECT
-	CONCAT(nome_jogo, ' ', plataforma)
+	CONCAT(nome_jogo, ' ' ,plataforma)
 FROM jogo;
 
 -- 10)
-SELECT preco, IFNULL(preco, 'Gratuito') FROM jogo;
+SELECT IFNULL(preco, 'Gratuito') FROM jogo;
 
 -- 11)
-SELECT genero, IFNULL(genero, 'Não informado') FROM jogo;
+SELECT IFNULL(genero, 'Não informado') FROM jogo;
 
 -- 12)
-SELECT nome_jogo, data_lancamento, data_cadastro, CONCAT('R$', preco) FROM jogo;
+SELECT nome_jogo, data_lancamento, data_cadastro, CONCAT('R$ ', preco) FROM jogo;
 
 -- 13)
 SELECT data_lancamento AS 'Lançamento' FROM jogo;
@@ -102,7 +102,7 @@ SELECT modo_online AS 'Modo Online' FROM jogo;
 
 -- 15)
 SELECT
-	CONCAT(nome_jogo,'-',genero)
+	CONCAT(nome_jogo,' - ',genero)
 FROM jogo;
 
 -- 16)
@@ -116,7 +116,7 @@ FROM jogo;
 -- 17)
 SELECT 
 	CASE
-		WHEN preco > 200 THEN 'Caro'
+		WHEN preco >= 200 THEN 'Caro'
         ELSE 'Acessível'
 	END 'Preço'
 FROM jogo;
@@ -127,7 +127,7 @@ SELECT
 	CASE
 		WHEN modo_online = 'S' THEN 'Online'
 	END 'Modo'
-FROM jogo WHERE modo_online = 'S';
+FROM jogo;
 
 -- 19)
 SELECT 
@@ -135,13 +135,13 @@ SELECT
 	CASE
 		WHEN modo_online = 'N' THEN 'Offline'
 	END 'Modo'
-FROM jogo WHERE modo_online = 'N';
+FROM jogo;
 
 -- 20)
 SELECT
 	nome_jogo,
     CASE
-		WHEN preco > 200 THEN 'Caro'
+		WHEN preco >= 200 THEN 'Caro'
         ELSE 'Acessível'
 	END 'Situação de preço',
     CASE
@@ -200,7 +200,7 @@ FROM jogo;
 SELECT * FROM jogo WHERE modo_online = 'S' AND preco IS NOT NULL;
 
 -- 27)
-SELECT * FROM jogo WHERE preco = 0 ORDER BY nome_jogo ASC;
+SELECT * FROM jogo WHERE preco = 0 OR preco IS NULL ORDER BY nome_jogo ASC;
 
 -- 28)
 SELECT
@@ -210,7 +210,7 @@ SELECT
         ELSE 'Video Game'
 	END 'Plataforma',
     CASE
-		WHEN preco = 0 THEN 'Gratuito'
+		WHEN preco = 0 OR preco IS NULL THEN 'Gratuito'
         ELSE CONCAT('R$ ', preco)
 	END 'Preço',
     CASE
@@ -219,3 +219,86 @@ SELECT
         ELSE 'Caro'
 	END 'Classificação'
 FROM jogo;
+
+-- ATUALIZAÇÃO DE DADOS --
+
+-- 1)
+UPDATE jogo SET preco = 300 WHERE id = 1;
+
+-- 2)
+UPDATE jogo SET genero = 'Battle royale' WHERE id = 9;
+
+-- 3)
+UPDATE jogo SET modo_online = 'S' WHERE plataforma = 'PC';
+
+-- 4)
+UPDATE jogo SET preco = 0.00 WHERE preco IS NULL;
+
+-- 5)
+UPDATE jogo SET plataforma = 'PC' WHERE id = 2;
+
+-- 6)
+UPDATE jogo SET data_lancamento = '2026-01-01' WHERE id = 6;
+
+-- 7)
+UPDATE jogo SET modo_online = 'N';
+-- Usando o modo SafeMode ele não permite a execução
+-- Sem o SafeMode o comando é realizado, trocando o modo online de todos os jogos para 'N'
+
+-- EXCLUSÃO DE DADOS --
+
+-- 1)
+DELETE FROM jogo WHERE id = 8;
+
+-- 2)
+DELETE FROM jogo WHERE preco = 0 OR preco IS NULL;
+
+-- 3)
+DELETE FROM jogo WHERE genero IS NULL;
+
+-- 4)
+DELETE FROM jogo WHERE data_lancamento < '2010-01-01';
+
+-- 5)
+DELETE FROM jogo; -- remove os registros, mas o contador AUTO_INCREMENT normalmente não é resetado.
+
+-- ALTERAÇÃO DE ESTRUTURA DA TABELA --
+
+-- 1)
+ALTER TABLE jogo ADD COLUMN classificacao_indicativa VARCHAR(10);
+
+-- 2)
+ALTER TABLE jogo ADD COLUMN tamanho_jogo DECIMAL(5,2);
+
+-- 3)
+ALTER TABLE jogo ADD COLUMN desenvolvedora VARCHAR(45);
+
+-- 4)
+ALTER TABLE jogo ADD COLUMN modo_historia CHAR(1);
+
+-- 5)
+ALTER TABLE jogo ADD CONSTRAINT chModo CHECK (modo_historia IN('S', 'N'));
+
+-- 6)
+ALTER TABLE jogo MODIFY COLUMN nome_jogo VARCHAR(60);
+
+-- 7)
+ALTER TABLE jogo MODIFY COLUMN plataforma VARCHAR(20);
+
+-- 8)
+ALTER TABLE jogo MODIFY COLUMN preco DECIMAL(6,2);
+
+-- 9)
+ALTER TABLE jogo RENAME COLUMN modo_online TO modo_jogo;
+
+-- 10)
+ALTER TABLE jogo DROP COLUMN desenvolvedora;
+
+-- 11)
+ALTER TABLE jogo DROP COLUMN modo_historia;
+
+-- 12)
+ALTER TABLE jogo DROP COLUMN dificuldade; -- Não é possível remover a coluna dificuldade, checar se essa coluna existe;
+
+-- 13)
+ALTER TABLE jogo ADD CONSTRAINT chNome UNIQUE (nome_jogo);
