@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de corridas de táxi</title>
+</head>
+<body>
+    <!-- 
+    25 litros de combustível
+    10km com 1 litro de combustível 
+    -->
+
+    <h3>Simulação de corridas de táxi</h3>
+
+    <label for="ipt_distancia">Distância que será percorrida (em KM)</label> <br>
+    <input type="text" id="ipt_distancia"> <br>
+
+    <label for="ipt_velocidade">Velocidade média do carro (em KM/H)</label> <br>
+    <input type="text" id="ipt_velocidade"> <br><br>
+
+    <button onclick="simular()">SIMULAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let combustivel = 25;
+
+    function simular() {
+        let distancia = Number(ipt_distancia.value);
+        let velocidade = Number(ipt_velocidade.value);
+
+        let tempoMedio = distancia / velocidade;
+        
+        let combustivelGasto = distancia / 10;
+
+        let porcentagemCombustivelGasto = (combustivelGasto * 100) / 25;
+
+        combustivel -= combustivelGasto;
+
+        let porcentagemCombustivelRestante = (combustivel * 100) / 25;
+
+        msg.innerHTML += `Ao percorrer ${distancia} km, em velocidade média de ${velocidade} km/h, a viagem durou ${tempoMedio.toFixed(2)} horas. Ao todo, foram gastos ${combustivelGasto} litros de combustível (${porcentagemCombustivelGasto}%). Restam ${combustivel} litros de combustível (${porcentagemCombustivelRestante}%).<br>`;
+
+        if (porcentagemCombustivelRestante >= 30) {
+            msg.innerHTML += `<b style="color: blue;">Continue a rodar!</b> - por que ainda resta ${porcentagemCombustivelRestante}% do combustível inicial<br><br>`;
+        } else {
+            msg.innerHTML += `<b style="color: red;">É melhor parar para reabastecer!</b> - porque está abaixo de 30% do combustível inicial<br><br>`;
+        }
+    }
+</script>
