@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Alunos</title>
+</head>
+<body>
+    <h3>Classificação de Alunos: Como Está Seu Desempenho?</h3>
+
+    <label for="inpt_notaAluno">Nota do aluno</label> <br>
+    <input type="text" id="inpt_notaAluno"> <br><br>
+    
+    <button onclick="classificarAluno()">CLASSIFICAR ALUNO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function classificarAluno() {
+        let notaAluno = Number(inpt_notaAluno.value);
+
+        if (notaAluno < 5) {
+            msg.innerHTML = `Aluno precisa de muita ajuda`;
+        } else if (notaAluno <= 7) {
+            msg.innerHTML = `Aluno na média`;
+        } else if (notaAluno <= 9.5) {
+            msg.innerHTML = `Aluno na acima da média`;
+        } else {
+            msg.innerHTML = `Aluno fora da curva`;
+        }
+    }
+</script>
