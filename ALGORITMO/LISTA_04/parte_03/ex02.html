@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe social em tuvalu</title>
+</head>
+<body>
+    <h3>Classe Social em Tuvalu: Em Qual Você se Encaixa?</h3>
+
+    <label for="ipt_rendaFamiliar">Renda familiar</label> <br>
+    <input type="text" id="ipt_rendaFamiliar"> <br><br>
+
+    <button onclick="analisarRenda()">ANALISAR RENDA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarRenda() {
+        let rendaFamiliar = Number(ipt_rendaFamiliar.value);
+
+        if (rendaFamiliar > 9500) {
+            msg.innerHTML = `Classe A`;
+        } else if (rendaFamiliar >= 2500) {
+            msg.innerHTML = `Classe B`;
+        } else if (rendaFamiliar > 900) {
+            msg.innerHTML = `Classe C`;
+        } else if (rendaFamiliar >= 250) {
+            msg.innerHTML = `Classe D`;
+        } else {
+            msg.innerHTML = `Classe E`;
+        }
+    }
+</script>
