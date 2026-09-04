@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altura e Esportes</title>
+</head>
+<body>
+    <h3>Altura e Esportes: Descubra Sua Vantagem Competitiva</h3>
+
+    <label for="ipt_altura">Digite sua altura</label> <br>
+    <input type="text" id="ipt_altura"> <br><br>
+
+    <button onclick="verificar()">VERICAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        let altura = Number(ipt_altura.value);
+
+        if (altura <= 1.65) {
+            msg.innerHTML = `Você pode ser piloto de corrida`;
+        } else if (altura <= 1.8) {
+            msg.innerHTML = `Você pode ser jogador de futebol`;
+        } else {
+            msg.innerHTML = `Você pode ser jogador de vôlei ou basquete`;
+        }
+    }
+</script>
