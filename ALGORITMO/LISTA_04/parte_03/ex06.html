@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Paulistas</title>
+</head>
+<body>
+    <h3>Times Paulistas: O Canto da Sua Torcida!</h3>
+
+    <label for="ipt_time">Qual time que você torce</label> <br>
+    <input type="text" id="ipt_time"> <br><br>
+
+    <button onclick="falarSobreTime()">FALAR SOBRE ESSE TIME</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function falarSobreTime() {
+        let time = ipt_time.value;
+
+        if (time == 'Corinthians') {
+            msg.innerHTML = `<span style="background-color: black; color: white;">Salve o Corinthians</span>`;
+        } else if (time == 'Palmeiras') {
+            msg.innerHTML = `<span style="background-color: green; color: white;">Salve o alviverde imponente</span>`;
+        } else if (time == 'Santos') {
+            msg.innerHTML = `<span style="background-color: white; color: black;">Agora quem dá a bola é o Santos</span>`;
+        } else {
+            msg.innerHTML = `<span style="background-color: black; color: red;">Salve o Tricolor paulista</span>`;
+        }
+    }
+</script>
