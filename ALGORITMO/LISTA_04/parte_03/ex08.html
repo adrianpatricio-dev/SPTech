@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta de economia</title>
+</head>
+<body>
+    <h3>Meta de Economia: Você Está no Caminho Certo?</h3>
+
+    <label for="ipt_metaEconomia">Meta de economia</label> <br>
+    <input type="text" id="ipt_metaEconomia"> <br>
+
+    <label for="ipt_quantidadeGuardada">Quantidade de dinheiro guardado</label> <br>
+    <input type="text" id="ipt_quantidadeGuardada"> <br><br>
+
+    <button onclick="analisarCorrida()">ANALISAR CORRIDA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarCorrida() {
+        let metaEconomia = Number(ipt_metaEconomia.value);
+        let quantidadeGuardada = Number(ipt_quantidadeGuardada.value);
+        let valorReal;
+
+        if (metaEconomia == quantidadeGuardada) {
+            msg.innerHTML = `Parabéns, meta alcançada!`;
+        } else if (quantidadeGuardada > metaEconomia) {
+            valorReal = quantidadeGuardada - metaEconomia;
+
+            msg.innerHTML = `Meta ultrapassada em ${valorReal}`;
+        } else {
+            valorReal = metaEconomia - quantidadeGuardada;
+
+            msg.innerHTML = `Força! Ainda em busca da meta! Falta ${valorReal}`;
+        }
+     }
+</script>
