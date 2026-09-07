@@ -21,16 +21,16 @@
     function analisarRenda() {
         let rendaFamiliar = Number(ipt_rendaFamiliar.value);
 
-        if (rendaFamiliar > 9500) {
-            msg.innerHTML = `Classe A`;
-        } else if (rendaFamiliar >= 2500) {
-            msg.innerHTML = `Classe B`;
-        } else if (rendaFamiliar > 900) {
-            msg.innerHTML = `Classe C`;
-        } else if (rendaFamiliar >= 250) {
-            msg.innerHTML = `Classe D`;
-        } else {
+        if (rendaFamiliar <= 250) {
             msg.innerHTML = `Classe E`;
+        } else if (rendaFamiliar <= 900) {
+            msg.innerHTML = `Classe D`;
+        } else if (rendaFamiliar <= 2500) {
+            msg.innerHTML = `Classe C`;
+        } else if (rendaFamiliar <= 9500) {
+            msg.innerHTML = `Classe B`;
+        } else {
+            msg.innerHTML = `Classe A`;
         }
     }
 </script>
