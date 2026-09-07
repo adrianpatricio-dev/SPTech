@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem do pokémon selecionado</title>
+ </head>
+ <body>
+    <h3>Imagem do pokémon selecionado</h3>
+
+    <label for="slc_pokemon">Selecionar pokémon inicial</label> <br>
+
+    <select id="slc_pokemon">
+        <option selected disabled>Selecione uma opção</option>
+        <option value="bulbasaur">Bulbasaur</option>
+        <option value="charmander">Charmander</option>
+        <option value="squirtle">Squirtle</option>
+    </select> <br><br>
+
+    <button onclick="escolherPokemon()">ESCOLHER POKÉMON</button> <br><br>
+
+    <span id="msg"></span>
+ </body>
+ </html>
+
+ <script>
+    function escolherPokemon() {
+        let pokemon = slc_pokemon.value;
+
+        if (pokemon == 'bulbasaur') {
+            msg.innerHTML = `<img src="./assets/bullbasaur.png" style="height: fit-content; width: 200px">`;
+        } else if (pokemon == 'charmander') {
+            msg.innerHTML = `<img src="./assets/charmander.png" style="height: fit-content; width: 200px">`;
+        } else if (pokemon == 'squirtle') {
+            msg.innerHTML = `<img src="./assets/squirtle.png" style="height: fit-content; width: 200px">`;
+        } else {
+            alert('Erro! Selecione novamente');
+        }
+    }
+ </script>
