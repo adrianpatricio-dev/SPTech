@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto da divisão por 5</title>
+</head>
+<body>
+    <h3>Resto da divisão por 5</h3>
+
+    <label for="ipt_numero">Digite um número</label> <br>
+    <input type="text" id="ipt_numero"> <br><br>
+
+    <button onclick="verificar()">MÚLTIPLO DE 5</button> <br><br>
+
+    <spna id="msg"></spna>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        let numero = Number(ipt_numero.value);
+
+        if (numero > 0) {
+            let resto = numero % 5;
+
+            if (resto == 0) {
+                msg.innerHTML = `Perfeito, esse número é múltiplo de cinco`;
+            } else if (resto == 1) {
+                msg.innerHTML = `Vich, sobrou um`;
+            } else if (resto == 2) {
+                msg.innerHTML = `Para esse o resto é dois`;
+            } else if (resto == 3) {
+                msg.innerHTML = `Com mais dois daria certo`;
+            } else {
+                msg.innerHTML = `Só faltou 1 para ser múltiplo de 5`;
+            }
+        } else {
+            msg.innerHTML = ``;
+
+            alert('Digite um número maior que zero');
+        }
+    }
+</script>
