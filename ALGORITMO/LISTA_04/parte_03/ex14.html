@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representação do humor do usuário</title>
+</head>
+<body>
+    <h3>Representação do humor do usuário</h3>
+
+    <label for="slc_opcao">Como você esta se sentindo hoje?</label> <br>
+    <select id="slc_opcao">
+        <option selected disabled>Selecione uma opção</option>
+        <option value="feliz">Feliz</option>
+        <option value="triste">Triste</option>
+        <option value="bravo">Bravo</option>
+        <option value="surpreso">Surpreso</option>
+        <option value="cansado">Cansado</option>
+    </select> <br><br>
+
+    <button onclick="mostrarHumor()">MOSTRAR HUMOR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrarHumor() {
+        let opcao = slc_opcao.value;
+
+        if (opcao == 'feliz') {
+            msg.innerHTML = `<img src="./assets/sorrir.png" style="height: fit-content; width: 200px">`;
+        } else if (opcao == 'triste') {
+            msg.innerHTML = `<img src="./assets/triste.png" style="height: fit-content; width: 200px">`;
+        } else if (opcao == 'bravo') {
+            msg.innerHTML = `<img src="./assets/bravo.png" style="height: fit-content; width: 200px">`;
+        } else if (opcao == 'surpreso') {
+            msg.innerHTML = `<img src="./assets/surpreso.png" style="height: fit-content; width: 200px">`;
+        } else if (opcao == 'cansado') {
+            msg.innerHTML = `<img src="./assets/dormindo.png" style="height: fit-content; width: 200px">`;
+        } else {
+            alert('Erro! Selecione novamente');
+        }
+    }
+</script>
