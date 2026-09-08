@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo Seletivo Mentes Brilhantes</title>
+</head>
+<body>
+    <h3>Processo Seletivo Mentes Brilhantes</h3>
+
+    <label for="ipt_enem">Digite a nota do ENEM</label> <br>
+    <input type="text" id="ipt_enem"> <br>
+
+    <label for="ipt_vestibular">Digite a nota do vestibular interno</label> <br>
+    <input type="text" id="ipt_vestibular"> <br><br>
+
+    <button onclick="avaliar()">AVALIAÇÃO</button>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        let enem = Number(ipt_enem.value);        
+        let vestibular = Number(ipt_vestibular.value);
+
+        if (enem >= 800 || vestibular >= 700) {
+            alert('Parabéns! Aprovado');
+        } else {
+            alert('Tente semestre que vem!');
+        }
+    }
+</script>
