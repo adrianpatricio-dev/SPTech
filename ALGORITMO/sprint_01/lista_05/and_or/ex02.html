@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Preferências de Compras</title>
+</head>
+<body>
+    <h3>Simulador de Preferências de Compras: Será que Robervaldo Gostaria?</h3>
+
+    <label for="ipt_tamanhoTela">Digite o tamanho da tela</label> <br>
+    <input type="text" id="ipt_tamanhoTela"> <br>
+
+    <label for="slc_corCelular">Selecione a cor do celular</label> <br>
+    <select id="slc_corCelular">
+        <option selected disabled>Selecione uma opção</option>
+        <option value="preto">Preto</option>
+        <option value="prata">Prata</option>
+        <option value="azul">Azul</option>
+        <option value="vermelho">Vermelho</option>
+    </select> <br><br>
+
+    <button onclick="analisar()">SERÁ QUE ELE GOSTA?</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        let tamanhoTela = Number(ipt_tamanhoTela.value);
+        let corCelular = slc_corCelular.value;
+
+        console.log(tamanhoTela)
+
+        if (tamanhoTela > 6.5 && (corCelular == 'preto' || corCelular == 'prata')) {
+            msg.innerHTML = '<img src="https://img.magnific.com/fotos-gratis/agencia-de-marketing-autentica-pequena-e-jovem_23-2150167441.jpg?semt=ais_hybrid&w=740&q=80" style="height: fit-content; width: 200px">';
+        } else {
+            msg.innerHTML = '<img src="https://st4.depositphotos.com/23223598/29631/i/450/depositphotos_296310612-stock-photo-upset-man-white-shirt-facepalm.jpg" style="height: fit-content; width: 200px">';
+        }
+    }
+</script>
