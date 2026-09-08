@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Avaliação de Atendimento: Dê Sua Nota!</title>
+</head>
+<body>
+    <h3>Sistema de Avaliação de Atendimento: Dê Sua Nota!</h3>
+
+    <label for="ipt_nota">Nota para o atendimento</label> <br>
+    <input type="text" id="ipt_nota"> <br><br>
+
+    <button onclick="avaliarAtendimento()">AVALIAR ATENDIMENTO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function avaliarAtendimento() {
+        let nota = Number(ipt_nota.value);
+
+        if (nota < 0 || nota > 10) {
+            msg.innerHTML = 'Nota inválida';
+        } else if (nota >= 0 && nota <= 5) {
+            msg.innerHTML = 'Não aprovado';
+        } else if (nota <= 6) {
+            msg.innerHTML = 'Neutro';
+        } else {
+            msg.innerHTML = 'Aprovado';
+        }
+    }
+</script>
