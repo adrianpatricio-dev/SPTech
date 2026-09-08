@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinião da família</title>
+</head>
+<body>
+    <h1>Opinião da família</h1>
+
+    <span>Digite sua nota na escola</span>
+    <input type="text" id="input_nota"> <br>
+
+    <button onclick="mostrarOpiniaoAvo()">OPINIÃO DA VÓ</button> <br>
+
+    <button onclick="mostrarOpiniaoMae()">OPINIÃO DA MÃE</button>
+</body>
+</html>
+
+<script>
+    function mostrarOpiniaoAvo() {
+        alert(`Muito bem, que neto inteligente, porque tirou ${input_nota.value}`);
+    }
+
+    function mostrarOpiniaoMae() {
+        alert(`Não fez mais que tua obrigação com essa nota ${input_nota.value}`);
+    }
+</script>

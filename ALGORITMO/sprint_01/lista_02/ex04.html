@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde eu moro</title>
+</head>
+<body>
+    <h1>Onde eu moro</h1>
+
+    <span>Nome da rua/ avenida/ vila</span>
+    <input type="text" id="input_logradouro"> <br>
+    
+    <span>Número da casa</span>
+    <input type="text" id="input_numero"> <br>
+
+    <button onclick="mostraEndereco()">ONDE EU MORO</button>
+</body>
+</html>
+
+<script>
+    function mostraEndereco() {
+        alert(`Seu logradouro é ${input_logradouro.value}`);
+        alert(`O número do seu logradouro é ${input_numero.value}`);
+    }
+</script>

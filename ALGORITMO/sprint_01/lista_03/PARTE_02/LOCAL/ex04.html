@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da média da SPTech</title>
+</head>
+<body>
+    <h3>Cálculo da média da SPTech</h3>
+
+    Nome
+    <input type="text" id="ipt_nome"> <br>
+
+    Continuada
+    <input type="text" id="ipt_continuada"> <br>
+
+    Semestral
+    <input type="text" id="ipt_semestral"> <br> <br>
+
+    <button onclick="calcularMedia()">MEDIA</button> <br> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcularMedia() {
+        let nome = ipt_nome.value;
+        let continuada = Number(ipt_continuada.value);
+        let semestral = Number(ipt_semestral.value);
+
+        let valorRealContinuada = continuada * 0.4;
+
+        let valorRealSemestral = semestral * 0.6;
+
+        let media = valorRealContinuada + valorRealSemestral;
+
+        msg.innerHTML = `A média de ${nome} será de ${media}`;
+    }
+</script>

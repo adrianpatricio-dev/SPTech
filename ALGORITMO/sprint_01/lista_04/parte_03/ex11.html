@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    31
+    
+    
+    31
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de umidade do ar</title>
+</head>
+<body>
+    <h3>Controle de umidade do ar</h3>
+
+    <label for="ipt_umidade">Umidade do ambiente (%)</label> <br>
+    <input type="text" id="ipt_umidade"> <br><br>
+
+    <button onclick="verificarUmidade()">VERIFICAR UMIDADE</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarUmidade() {
+        let umidade = Number(ipt_umidade.value);
+
+        if (umidade < 0) {
+            msg.innerHTML = ``;
+
+            alert('Erro! Valor menor que 0, digite o valor novamente');
+        } else if (umidade > 100) {
+            msg.innerHTML = ``;
+
+            alert('Erro! Valor maior que 100, digite o valor novamente');
+        } else {
+            if (umidade < 12) {
+                msg.innerHTML = `Estado de emergência`;
+            } else if (umidade <= 20) {
+                msg.innerHTML = `Estado de alerta`;
+            } else if (umidade <= 30) {
+                msg.innerHTML = `Estado de atenção`;
+            } else {
+                msg.innerHTML = `Nenhum risco`;
+            }
+        }
+    }
+</script>

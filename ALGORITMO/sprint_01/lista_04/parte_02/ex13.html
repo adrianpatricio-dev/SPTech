@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise da c/c (Conta Corrente)</title>
+</head>
+<body>
+    <h3>Análise da c/c (Conta Corrente)</h3>
+
+    <label for="ipt_saldo">Digite o saldo em conta</label> <br>
+    <input type="text" id="ipt_saldo"> <br>
+
+    <label for="ipt_retirar">Digite o valor do débito (ou seja, valor a tirar da conta) </label> <br>
+    <input type="text" id="ipt_retirar"> <br><br>
+
+    <button onclick="analisarConta()">ANALISAR CONTA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarConta() {
+        let saldo = Number(ipt_saldo.value);
+        let retirar = Number(ipt_retirar.value);
+
+        saldo -= retirar;
+
+        if (saldo >= 0) {
+            msg.innerHTML = `<i style="color: blue;">O saldo atual da conta corrente é ${saldo}</i>`;
+        } else {
+            msg.innerHTML = `<b style="color: red;">O saldo atual da conta corrente é ${saldo}</b>`;
+        }
+    }
+</script>

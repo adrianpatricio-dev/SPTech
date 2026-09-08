@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado BOM DOCE </title>
+</head>
+<body>
+    <h3>Mercado BOM DOCE</h3>
+
+    <label for="ipt_chocolates">Digite a quantidade de chocolates</label> <br>
+    <input type="text" id="ipt_chocolates"> <br><br>
+
+    <button onclick="comprar()">COMPRA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function comprar() {
+        let chocolates = Number(ipt_chocolates.value);
+
+        let valor = chocolates;
+
+        if (chocolates > 12) {
+            valor *= 2.50;
+        } else {
+            valor *= 3;
+        }
+
+        msg.innerHTML = `O valor da sua compra foi de R$${valor.toFixed(2)}`;
+    }
+</script>

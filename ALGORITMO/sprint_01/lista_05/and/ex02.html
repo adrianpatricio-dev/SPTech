@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxílio Covid-19</title>
+</head>
+<body>
+    <h3>Auxílio Covid-19: Você Tem Direito ao Benefício?</h3>
+
+    <label for="ipt_renda">Digite a renda</label> <br>
+    <input type="text" id="ipt_renda"> <br>
+
+    <label for="ipt_rendaFamiliar">Digite a renda total familiar</label> <br>
+    <input type="text" id="ipt_rendaFamiliar"> <br><br>
+
+    <button onclick="verificarAjuda()">VERIFICAR AJUDA</button>
+</body>
+</html>
+
+<script>
+    function verificarAjuda() {
+        let renda = Number(ipt_renda.value);  
+        let rendaFamiliar = Number(ipt_rendaFamiliar.value); 
+        
+        if (renda <= 1050 && rendaFamiliar <= 2100) {
+            alert('Você terá direito!');
+        } else {
+            alert('Você NÃO terá direito');
+        }
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limite de velocidade</title>
+</head>
+<body>
+    <h3>Limite de velocidade</h3>
+
+    <label for="ipt_velocidade">Velocidade em que esta dirigindo (km/h)</label> <br>
+    <input type="text" id="ipt_velocidade"> <br>
+
+    <label for="ipt_limiteDeVelocidade">Velocidade da via (km/h)</label> <br>
+    <input type="text" id="ipt_limiteDeVelocidade"> <br><br>
+
+    <button onclick="verificar()">VERIFICAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        let velocidade = Number(ipt_velocidade.value);     
+        let limiteDeVelocidade = Number(ipt_limiteDeVelocidade.value);
+
+        let excessoVelocidade = velocidade - limiteDeVelocidade;
+
+        let porcentagemVelocidade = (excessoVelocidade * 100) / limiteDeVelocidade;
+        
+        console.log(porcentagemVelocidade)
+
+        if (velocidade <= limiteDeVelocidade) {
+            msg.innerHTML = `Velocidade dentro do limite. Boa direção!`;
+        } else if (porcentagemVelocidade <= 20) {
+            msg.innerHTML = `Atenção! Excedendo o limite permitido`;
+        } else {
+            msg.innerHTML = `Multa grave! Velocidade muito acima do permitido`;
+        }
+    }
+</script>

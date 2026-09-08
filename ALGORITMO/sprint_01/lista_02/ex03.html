@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futebol</title>
+</head>
+<body>
+    <h1>Futebol</h1>
+
+    <span>Nome do time</span>
+    <input type="text" id="input_time"> <br>
+    
+    <span>Quantidade de títulos</span>
+    <input type="text" id="input_titulos"> <br>
+
+    <button onclick="mostrarTime()">AMO MEU TIME</button>
+</body>
+</html>
+
+<script>
+    function mostrarTime() {
+        alert(`O time ${input_time.value} tem ${input_titulos.value} títulos`);
+    }
+</script>

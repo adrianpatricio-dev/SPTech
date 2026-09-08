@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de temperatura</title>
+</head>
+<body>
+    <h3>Análise de temperatura</h3>
+
+    <label for="ipt_temperatura">Digite a temperatura do ambiente (em celsius)</label> <br>
+    <input type="text" id="ipt_temperatura"> <br><br>
+
+    <button onclick="verificarClima()">VERIFICAR CLIMA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarClima(){
+        let temperatura = Number(ipt_temperatura.value);
+
+        if (temperatura < 10) {
+            msg.innerHTML = `<img src="https://th.bing.com/th/id/R.4f19ea8b22dfb9e45c72c1e15fb02e83?rik=%2fbsfZH01dINwRw&pid=ImgRaw&r=0" style="width: 300px; height= fit-content;">`;
+        } else {
+            msg.innerHTML = `<img src="https://www.milkpoint.com.br/img/artigo/58004/?w=1200&vs=21062018135724" style="width: 300px; height= fit-content;">`;
+        }
+    }
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensação Térmica</title>
+</head>
+<body>
+    <h3>Sensação Térmica: Como o Corpo Humano Percebe a Temperatura</h3>
+
+    <label for="ipt_temperatura">Temperatura</label> <br>
+    <input type="text" id="ipt_temperatura"> <br><br>
+
+    <button onclick="lerTemperatura()">LER TEMPERATURA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function lerTemperatura() {
+        let temperatura = Number(ipt_temperatura.value);
+
+        if (temperatura <= 14) {
+            msg.innerHTML = `Congelante (até menos de 14ºC)`;
+        } else if (temperatura <= 21) {
+            msg.innerHTML = `Com Frio (entre 14ºC e 21ºC)`;
+        } else if (temperatura <= 24) {
+            msg.innerHTML = `Confortável (mais de 21ºC até 24ºC)`;
+        } else if (temperatura <= 31) {
+            msg.innerHTML = `Com Calor (mais de 24ºC até 31ºC)`;
+        } else {
+            msg.innerHTML = `Calor escaldante (mais de 31ºC)`;
+        }
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendação de clima</title>
+</head>
+<body>
+    <h1>Recomendação de clima</h1>
+
+    <span>Temperatura atual</span>
+    <input type="text"  id="input_tempAtual"> <br>
+
+    <span>Condição do tempo</span>
+    <input type="text" id="input_condTempo"> <br>
+
+    <button onclick="verDica()">VER DICA</button>
+</body>
+</html>
+
+<script>
+    function verDica() {
+        alert(`Está fazendo ${input_tempAtual.value} graus e o dia está ${input_condTempo.value}`);
+    }
+</script>

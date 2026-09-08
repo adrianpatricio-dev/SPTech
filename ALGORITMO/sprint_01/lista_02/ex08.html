@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de cinema</title>
+</head>
+<body>
+    <h1>Sistema de cinema</h1>
+
+    <span>Nome do filme</span>
+    <input type="text" id="input_filme"> <br>
+
+    <span>Horário da sessão</span>
+    <input type="text" id="input_horaSessao"> <br>
+
+    <button onclick="confirmarIngresso()">CONFIRMAR INGRESSO</button>
+</body>
+</html>
+
+<script>
+    function confirmarIngresso() {
+        alert(`Ingresso confirmado para o filme ${input_filme.value} no horário ${input_horaSessao.value}`);
+    }
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de passos</title>
+</head>
+<body>
+    <h1>Contador de passos</h1>
+
+    <span>Distância percorrida (em km)</span>
+    <input type="text" id="input_distPercorrida"> <br>
+
+    <span>Tempo gasto (em minutos)</span>
+    <input type="text" id="input_tempoGasto"> <br>
+
+    <button onclick="finalizarTreino()">FINALIZAR TREINO</button>
+</body>
+</html>
+
+<script>
+    function finalizarTreino() {
+        alert(`Você percorreu ${input_distPercorrida.value} km hoje!`);
+        alert(`O seu tempo total de exercício foi de ${input_tempoGasto.value} minutos`);
+    }
+</script>
