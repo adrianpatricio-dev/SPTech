@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Parcelamento de Compra</title>
+</head>
+<body>
+    <h3>Análise de Parcelamento de Compra</h3>
+
+    <label for="slc_metodoPagamento">Método de pagamento</label> <br>
+    <select id="slc_metodoPagamento">
+        <option selected disabled>Selecione</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="debito">Cartão de débito</option>
+        <option value="credito">Cartão de crédito</option>
+        <option value="boleto">Boleto</option>
+    </select> <br><br>
+
+    <button onclick="analisarCompra()">ANALISAR COMPRA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarCompra() {
+        let metodoPagamento = slc_metodoPagamento.value;
+
+        if (metodoPagamento == 'dinheiro' || metodoPagamento == 'debito') {
+            msg.innerHTML = 'Você terá que pagar a vista';
+        } else {
+            msg.innerHTML = 'Pagamento poderá ser parcelado';
+        }
+    }
+</script>
