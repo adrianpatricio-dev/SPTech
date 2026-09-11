@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Preço do Bilhete Único de São Paulo</title>
+</head>
+<body>
+    <h3>Simulador de Preço do Bilhete Único de São Paulo</h3>
+
+    <label for="slc_tipoPassageiro">Selecione o tipo de passageiro</label> <br>
+    <select id="slc_tipoPassageiro">
+        <option selected disabled>Selecione...</option>
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso">Idoso/PNE</option>
+    </select> <br><br>
+
+    <label for="slc_tipoPassagem">Selecione o tipo de passagem</label> <br>
+    <select id="slc_tipoPassagem">
+        <option selected disabled>Selecione...</option>
+        <option value="4.40">Passagem única</option>
+        <option value="5.90">Passagem integração</option>
+    </select> <br><br>
+
+    <button onclick="simluarPreco()">SIMULAR PREÇO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function simluarPreco() {
+        let tipoPassageiro = slc_tipoPassageiro.value;
+        let tipoPassagem = Number(slc_tipoPassagem.value);
+
+        console.log(tipoPassageiro, tipoPassagem);
+
+        if ((tipoPassagem == 4.40 || tipoPassagem == 5.90) && tipoPassageiro == 'comum') {
+            msg.innerHTML = `Valor da passagem escolhida: R$${tipoPassagem}`;
+        } else if (tipoPassageiro == 'estudante' && (tipoPassagem == 4.40 || tipoPassagem == 5.90)) {
+            tipoPassagem *= 0.5;
+
+            msg.innerHTML = `Valor da passagem escolhida: R$${tipoPassagem}`;
+        } else {
+            msg.innerHTML = `Valor da passagem escolhida: Gratuidade`;
+        }
+    } 
+</script>
