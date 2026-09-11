@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação de Crédito Bancário</title>
+</head>
+<body>
+    <h3>Aprovação de Crédito Bancário</h3>
+
+    <label for="ipt_renda">Renda mensal</label> <br>
+    <input type="text" id="ipt_renda"> <br>
+
+    <label for="ipt_score">Score de crédito</label> <br>
+    <input type="text" id="ipt_score"> <br>
+
+    <label for="ipt_anos">Há quantos anos é correntista?</label> <br>
+    <input type="text" id="ipt_anos"> <br>
+
+    <label for="slc_dividas">Possui dívidas abertas?</label> <br>
+    <select id="slc_dividas">
+        <option selected disabled value="undefined">Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br><br>
+
+    <button onclick="analisarCredito()">ANALISAR CRÉDITO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarCredito() {
+        let renda = Number(ipt_renda.value);
+        let score = Number(ipt_score.value);
+        let anos = Number(ipt_anos.value);
+        let dividas = slc_dividas.value;
+
+        if (renda >= 3000 && score >= 600 || (anos > 5 && dividas == 'não')) {
+            alert(`Empréstimo aprovado`);
+        } else {
+            alert(`Empréstimo negado`);
+        }
+    }
+</script>
