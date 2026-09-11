@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsa de Estudos Integral</title>
+</head>
+<body>
+    <h3>Bolsa de Estudos Integral</h3>
+
+    <label for="ipt_rendaFamiliar">Renda familiar</label> <br>
+    <input type="text" id="ipt_rendaFamiliar"> <br>
+
+    <label for="ipt_media">Média escolar do aluno</label> <br>
+    <input type="text" id="ipt_media"> <br>
+
+    <label for="slc_opcao">Atleta federado?</label> <br>
+    <select id="slc_opcao">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br><br>
+
+    <button onclick="verificarBolsa">VERIFICAR BOLSA</button> <br><br>
+</body>
+</html>
+
+<script>
+    function verificarBolsa() {
+        let rendaFamiliar = Number(ipt_rendaFamiliar.value);
+        let media = Number(ipt_media.value);
+        let opcao = slc_opcao.value;
+
+        if (rendaFamiliar <= 800 && media >= 8 || (opcao == 'sim' && media >= 6)) {
+            alert(`Bolsa integral concedida!`);
+        } else {
+            alert(`Bolsa não concedida`);
+        }
+    }
+</script>
