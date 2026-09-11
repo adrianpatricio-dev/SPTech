@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Segura com Tentativas Limitadas</title>
+</head>
+<body>
+    <h3>Autenticação Segura com Tentativas Limitadas</h3>
+
+    <label for="ipt_login">Login</label><br>
+    <input type="text" id="ipt_login"> <br>
+
+    <label for="ipt_senha">Senha</label> <br>
+    <input type="text" id="ipt_senha"> <br>
+
+    <label for="ipt_info">Informação pessoal</label> <br>
+    <input type="text" id="ipt_info"> <br><br>
+
+    <button onclick="autenticar()">AUTENTICAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let tentativas = 3;
+
+    function autenticar() {
+        let login = ipt_login.value;
+        let senha = ipt_senha.value;
+        let info = ipt_info.value;
+
+        if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé') && tentativas > 0) {
+            msg.innerHTML = `Usuário autenticado`;
+
+            tentativas = 3;
+        } else if (tentativas > 1) {
+            tentativas --;
+
+            msg.innerHTML = `Você ainda tem ${tentativas} tentativa(s)`;
+        } else {
+            msg.innerHTML = `Usuário BLOQUEADO! Procure seu gerente!`;
+        }
+    }
+</script>
