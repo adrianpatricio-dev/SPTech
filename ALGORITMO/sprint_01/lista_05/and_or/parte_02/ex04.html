@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso à Área VIP do Evento</title>
+</head>
+<body>
+    <h3>Acesso à Área VIP do Evento</h3>
+
+    <label for="ipt_idade">Idade</label> <br>
+    <input type="text" id="ipt_idade"> <br>
+
+    <label for="slc_ingresso">Ingresso VIP?</label> <br>
+    <select id="slc_ingresso">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br>
+
+    <label for="slc_convite">Convite especial?</label> <br>
+    <select id="slc_convite">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br><br>
+
+    <button onclick="liberarAcesso()">LIBERAR ACESSO</button>
+</body>
+</html>
+
+<script>
+    function liberarAcesso() {
+        let idade = Number(ipt_idade.value);
+        let ingresso = slc_ingresso.value;
+        let convite = slc_convite.value;
+
+        if (idade >= 18 && (ingresso == 'sim' || convite == 'sim')) {
+            alert(`Acesso liberado à área VIP`);
+        } else {
+            alert(`Acesso negado`);
+        }
+    }
+</script>
