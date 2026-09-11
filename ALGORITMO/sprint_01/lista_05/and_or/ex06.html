@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desempenho Escolar</title>
+</head>
+<body>
+    <h3>Desempenho Escolar: O Aluno Foi Aprovado?</h3>
+
+    <label for="ipt_nota">Nota</label> <br>
+    <input type="text" id="ipt_nota"> <br>
+
+    <label for="ipt_frequencia">Frequência</label> <br>
+    <input type="text" id="ipt_frequencia"> <br>
+
+    <button onclick="analisarAluno()">ANALISAR ALUNO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function analisarAluno() {
+        let nota = Number(ipt_nota.value);
+        let frequencia = Number(ipt_frequencia.value);
+
+        if (nota == '' || frequencia == '') {
+            msg.innerHTML = `Preencha os campos`;
+        } else if (nota < 0 || nota > 10) {
+            alert(`Onde já se viu frequência < 0 ou > 100?!`);
+
+            msg.innerHTML = ``;
+        } else if (nota >= 0 && nota < 6) {
+            msg.innerHTML = `Aluno ficou abaixo da média`;
+        } else if (nota >= 6 && nota <= 8) {
+            msg.innerHTML = `Aluno ficou na média`;
+        } else {
+            msg.innerHTML = `Aluno acima da média`;
+        } 
+
+        if (frequencia >= 75) {
+            msg.innerHTML += `<br>Aluno aprovado por frequência`;
+        } else {
+            msg.innerHTML += `<br>Aluno reprovado por frequência`;
+        }
+    }
+</script>
