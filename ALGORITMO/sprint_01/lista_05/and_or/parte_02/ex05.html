@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in de Voo</title>
+</head>
+<body>
+    <h3>Check-in de Voo</h3>
+
+    <label for="slc_documento">Documento válido?</label> <br>
+    <select id="slc_documento">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br>
+
+    <label for="slc_check">Fez check-in online?</label> <br>
+    <select id="slc_check">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br>
+
+    <label for="ipt_horas">Horas de antecedência</label> <br>
+    <input type="text" id="ipt_horas"> <br><br>
+
+    <button onclick="verificarEmbarque()">VERIFICAR EMBARQUE</button>
+</body>
+</html>
+
+<script>
+    function verificarEmbarque() {
+        let documento = slc_documento.value;
+        let check = slc_check.value;
+        let horas = Number(ipt_horas.value);
+
+        if (documento == 'sim' && (check == 'sim' || horas >= 2)) {
+            alert(`Embarque liberado`);
+        } else {
+            alert(`Embarque negado`);
+        }
+    }
+</script>
