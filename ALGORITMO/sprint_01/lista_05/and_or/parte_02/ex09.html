@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso à Academia 24 Horas</title>
+</head>
+<body>
+    <h3>Acesso à Academia 24 Horas</h3>
+
+    <label for="slc_planoAluno">Plano do aluno</label> <br>
+    <select id="slc_planoAluno">
+        <option selected disabled>Selecione...</option>
+        <option value="premium">Premium</option>
+        <option value="básico">Básico</option>
+    </select> <br>
+
+    <label for="slc_horaAtual">Hora atual</label> <br>
+    <select id="slc_horaAtual">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+    </select> <br>
+
+    <label for="slc_checkIn">Check-in validado?</label> <br>
+    <select id="slc_checkIn">
+        <option selected disabled>Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+    </select> <br><br>
+
+    <button onclick="liberarCatraca()">LIBERAR CATRACA</button>
+</body>
+</html>
+
+<script>
+    function liberarCatraca() {
+        let planoAluno = slc_planoAluno.value;
+        let horaAtual = slc_horaAtual.value;
+        let checkIn = slc_checkIn.value;
+
+        if (planoAluno == 'premium' || (planoAluno == 'básico' && horaAtual >= 6 && horaAtual <= 22) && checkIn == 'sim') {
+            alert('Acesso liberado');
+        } else {
+            alert('Acesso negado');
+        }
+    }
+</script>
