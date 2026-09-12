@@ -32,7 +32,7 @@
                 alert('Valor de umidade inválido');
 
                 msg.innerHTML = '';
-            } else if ((temperatura >= 22 || temperatura <= 23) && umidade < 60) {
+            } else if ((temperatura >= 22 && temperatura <= 23) && umidade < 60) {
                 msg.innerHTML = `Clima agradável`;
             } else {
                 msg.innerHTML = `Clima desconfortável`;

@@ -60,7 +60,7 @@
         let horaAtual = slc_horaAtual.value;
         let checkIn = slc_checkIn.value;
 
-        if (planoAluno == 'premium' || (planoAluno == 'básico' && horaAtual >= 6 && horaAtual <= 22) && checkIn == 'sim') {
+        if ((planoAluno == 'premium' || (planoAluno == 'básico' && horaAtual >= 6 && horaAtual <= 22)) && checkIn == 'sim') {
             alert('Acesso liberado');
         } else {
             alert('Acesso negado');

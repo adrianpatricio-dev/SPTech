@@ -39,7 +39,7 @@
         let teste = Number(ipt_teste.value);
         let documentacao = slc_documentacao.value;
 
-        if ((curso == 'sim' && media >= 7) || teste >= 8 && documentacao == 'sim') {
+        if (((curso == 'sim' && media >= 7) || teste >= 8) && documentacao == 'sim') {
             alert('Matrícula liberada para o curso avançado');
         } else {
             alert('Matrícula não liberada');

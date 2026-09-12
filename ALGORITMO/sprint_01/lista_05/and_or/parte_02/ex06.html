@@ -34,10 +34,12 @@
         let valor = Number(ipt_valor.value);
         let programa = slc_programa.value;
         let cupom = ipt_cupom.value;
-        let desconto = valor;
+        let desconto;
 
         if (itens >= 3 && (programa == 'sim' || cupom == 'PROMO10') && valor >= 50) {
-            desconto *= 1.1;
+            desconto = valor * 0.1;
+
+            valor -= desconto;
 
             alert('Desconto aplicado!');
         } else {
