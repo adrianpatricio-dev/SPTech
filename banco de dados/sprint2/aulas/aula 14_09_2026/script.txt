@@ -61,13 +61,3 @@ UPDATE sprint2.produto SET fk_loja = NULL WHERE id = 6;
 SELECT
 	CONCAT(p.nome, ' - ', IFNULL(l.nome, 'SEM LOJA')) AS produto_loja
 FROM sprint2.produto AS p LEFT JOIN sprint2.loja AS l ON l.id = p.fk_loja;
-
-
-
--- SINTAXE --
-
--- IS NULL : SELECT colunas FROM nome_tabela WHERE nome_coluna IS NULL;
-
--- IFNULL : SELECT colunas, IFNULL(coluna, 'Mensagem se o campo for nulo') FROM nome_tabela;
-
--- SELECT TIMESTAMPDIFF(YEAR, data_inicial, data_final) FROM nome_tabela;
