@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observador de índices</title>
+</head>
+<body>
+    <h3>Observador de índices</h3>
+
+    <label for="ipt_frase">Frase</label> <br>
+    <input type="text" id="ipt_frase" onkeyup="processar()"> <br>
+
+    <label for="ipt_numero">Número da letra</label> <br>
+    <input type="text" id="ipt_numero" onkeyup="processar()"> <br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function processar() {
+        let frase = ipt_frase.value;
+        let numero = Number(ipt_numero.value);
+
+        let primeira_letra = frase[0];
+
+        let numero_letra = frase[numero];
+
+        let ultima_letra = frase[frase.length - 1];
+
+        msg.innerHTML = `
+            A primeira letra é: ${primeira_letra}<br>
+            A ${numero}ª letra é: ${numero_letra}<br>
+            A última letra é: ${ultima_letra}`;
+    }
+</script>
