@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senha forte ou fraca</title>
+</head>
+<body>
+    <h3>Senha forte ou fraca</h3>
+
+    <label for="ipt_senha">Senha</label> <br>
+    <input type="text" id="ipt_senha" onkeyup="processar()"> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+
+    function processar() {
+        let senha = ipt_senha.value;
+
+        let criterios = 0;
+
+        let quantidade_caracteres = senha.length;
+
+        let senha_lower = senha.toLowerCase();
+
+        let senha_upper = senha.toUpperCase();
+
+        if (quantidade_caracteres >= 8) {
+            criterios += 1;
+        } 
+        
+        if (senha_lower !== senha) {
+            criterios += 1;
+        }
+        
+        if (senha_upper !== senha) {
+            criterios += 1;
+        }
+
+        if (criterios == 3) {
+            msg.innerHTML = `Forte - atingiu todos os critérios de segurança`;
+        } else if (criterios == 2) {
+            msg.innerHTML = `Média - atingiu 2 critérios de segurança`;
+        } else if (criterios == 1) {
+            msg.innerHTML = `Fraca - atingiu 1 critério de segurança`;
+        } else {
+            msg.innerHTML = `Insegura - não atingiu nenhum critério de segurança`;
+        }
+    }
+</script>
