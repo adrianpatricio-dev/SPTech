@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Substituidor de caracteres</title>
+</head>
+<body>
+    <h3>Substituidor de caracteres</h3>
+
+    <label for="ipt_senha">Senha</label> <br>
+    <input type="text" id="ipt_senha" onkeyup="processar()"> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function processar() {
+        let senha = ipt_senha.value;
+
+        let senha_lower = senha.toLowerCase();
+
+        let senha_forte = senha_lower.replaceAll('e', '3').replaceAll('a', '@');
+
+        msg.innerHTML = `Senha original: ${senha}<br>Senha mais forte: ${senha_forte}`;
+    }
+</script>
