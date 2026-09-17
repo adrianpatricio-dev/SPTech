@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da palavra secreta</title>
+</head>
+<body>
+    <h3>Jogo da palavra secreta</h3>
+
+    <label for="ipt_letra">Digite uma letra</label> <br>
+    <input type="text" id="ipt_letra"> <br><br>
+
+    <button onclick="verificarLetras()">VERIFICAR LETRAS</button> <br><br>
+    
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarLetras() {
+        let letra = ipt_letra.value;
+        let palavra_secreta = 'ADSB';
+
+        let letra_upper = letra.toUpperCase();
+
+        let letra_includes = palavra_secreta.includes(letra_upper);
+
+        if (letra_includes) {
+            msg.innerHTML = `A letra ${letra} aparece na palavra secreta!`;
+        } else {
+            msg.innerHTML = `A letra ${letra} não aparece na palavra secreta!`;
+        }
+    }
+</script>
