@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super jogo da palavra secreta</title>
+</head>
+<body>
+    <h3>Super jogo da palavra secreta</h3>
+
+    <label for="ipt_letra">Digite uma letra</label> <br>
+    <input type="text" id="ipt_letra"> <br><br>
+
+    <button onclick="verificarLetra()">VERIFICAR LETRA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let palavra_secreta = 'DataBus';
+
+    let palavra_secreta_lower = palavra_secreta.toLowerCase();
+
+    let palavra_quantidade = palavra_secreta.length;
+
+    let contador_d = 1;
+    let contador_a = 2;
+    let contador_t = 1;
+    let contador_b = 1;
+    let contador_u = 1;
+    let contador_s = 1;
+
+    let concluido = 1;
+
+    function verificarLetra() {
+
+        if (concluido == 1) {
+
+            let letra = (ipt_letra.value).toLowerCase();
+
+            ipt_letra.value = '';
+            ipt_letra.focus();
+
+            let existe_letra = palavra_secreta_lower.includes(letra);
+
+            if (existe_letra && letra == 'd' && contador_d > 0) {
+                contador_d --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else if (existe_letra && letra == 'a' && contador_a > 0) {
+                contador_a --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else if (existe_letra && letra == 't' && contador_t > 0) {
+                contador_t --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else if (existe_letra && letra == 's' && contador_s > 0) {
+                contador_s --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else if (existe_letra && letra == 'b' && contador_b > 0) {
+                contador_b --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else if (existe_letra && letra == 'u' && contador_u > 0) {
+                contador_u --;
+
+                palavra_quantidade --;
+
+                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            } else {
+                msg.innerHTML += `<br>O caractere ${letra} NÃO aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+            }
+
+        }
+
+        if (palavra_quantidade == 0) {
+            msg.innerHTML = `Parabéns, você descobriu todas as letras da palavra secreta ${palavra_secreta}!`;
+
+            concluido = 0;
+        }
+    }
+</script>
