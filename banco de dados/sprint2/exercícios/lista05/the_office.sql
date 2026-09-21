@@ -161,3 +161,68 @@ INSERT INTO funcionario (nome, cargo, salario, data_contratacao, ativo, fk_depar
 	('Adrian Patrício', 'Gerente', 3500.00, '2026-08-12', 1, 4, 'semArroba');
     
     -- Error Code: 3819. Check constraint 'ch_email' is violated.
+    
+
+
+-- PARTE 6 : REMOVER CONSTRAINTS E CONFIGURAÇÕES --
+
+-- 1)
+ALTER TABLE departamento MODIFY COLUMN nome VARCHAR(50) NULL;
+
+-- 2)
+ALTER TABLE funcionario DROP INDEX ch_email;
+
+-- 3)
+ALTER TABLE funcionario DROP CONSTRAINT ch_email;
+
+-- 4)
+ALTER TABLE funcionario MODIFY COLUMN ativo TINYINT;
+
+-- 5)
+ALTER TABLE funcionario DROP CONSTRAINT ch_salario;
+
+-- 6)
+ALTER TABLE funcionario DROP CONSTRAINT ch_cargo;
+
+-- 7)
+ALTER TABLE funcionario DROP FOREIGN KEY ch_fk_departamento;
+
+INSERT INTO funcionario (nome, cargo, salario, data_contratacao, ativo, fk_departamento, email) VALUES
+	('Adrian Patrício', 'Gerente', 3500.00, '2026-08-12', 20, 4, 'adrian@email.com');
+
+-- 8)
+DESC funcionario;
+DESC departamento;
+
+
+
+-- PARTE 7 : CONSULTAS COM JOIN ENTRE AS TABELAS --
+
+-- 1)
+SELECT
+	funcionario.nome,
+    departamento.nome
+FROM departamento INNER JOIN funcionario ON departamento.id = funcionario.fk_departamento;
+
+-- 2)
+SELECT
+	f.nome,
+    d.nome
+FROM departamento AS d INNER JOIN funcionario AS f ON d.id = f.fk_departamento;
+
+-- 3)
+SELECT
+	departamento.nome,
+    funcionario.cargo
+FROM departamento JOIN funcionario ON departamento.id = funcionario.fk_departamento WHERE cargo = 'Vendedor';
+    
+
+-- 4)
+SELECT
+	CONCAT(funcionario.nome, ' - ', funcionario.cargo, ' - ', departamento.nome) 'ficha'
+FROM funcionario INNER JOIN departamento ON funcionario.fk_departamento = departamento.id;
+
+-- 5)
+SELECT
+	IFNULL(d.nome, 'SEM DEPARTAMENTO')
+FROM departamento AS d INNER JOIN funcionario AS f ON d.id = f.fk_departamento;
