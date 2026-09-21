@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super jogo da palavra secreta</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3>Super jogo da palavra secreta</h3>
-
-    <label for="ipt_letra">Digite uma letra</label> <br>
-    <input type="text" id="ipt_letra"> <br><br>
-
-    <button onclick="verificarLetra()">VERIFICAR LETRA</button> <br><br>
+    <section class="section__container">
+        <section class="section__form">
+            <h3>PALAVRA SECRETA</h3>
+            <p>advinhe a palavra secreta por letra</p>
+            
+            <section class="section__input">
+                <label for="ipt_letra">DIGITE UMA LETRA</label>
+                <input type="text" id="ipt_letra">
+            </section>
+            
+            <button onclick="verificarLetra()">VERIFICAR LETRA</button>
+        </section>
+    </section>
 
     <span id="msg"></span>
 </body>
@@ -49,45 +57,45 @@
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else if (existe_letra && letra == 'a' && contador_a > 0) {
                 contador_a --;
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else if (existe_letra && letra == 't' && contador_t > 0) {
                 contador_t --;
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else if (existe_letra && letra == 's' && contador_s > 0) {
                 contador_s --;
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else if (existe_letra && letra == 'b' && contador_b > 0) {
                 contador_b --;
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else if (existe_letra && letra == 'u' && contador_u > 0) {
                 contador_u --;
 
                 palavra_quantidade --;
 
-                msg.innerHTML += `<br>O caractere ${letra} aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             } else {
-                msg.innerHTML += `<br>O caractere ${letra} NÃO aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres`;
+                msg.innerHTML += `<span><p>O caractere <b class="letra"> ${letra} </b> NÃO aparece na palavra secreta! Faltam ${palavra_quantidade} caracteres</p></span>`;
             }
 
         }
 
         if (palavra_quantidade == 0) {
-            msg.innerHTML = `Parabéns, você descobriu todas as letras da palavra secreta ${palavra_secreta}!`;
+            msg.innerHTML = `<span class="span__parabens">Parabéns, você descobriu todas as letras da palavra secreta <b>${palavra_secreta}</b></span>`;
 
             concluido = 0;
         }

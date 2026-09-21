@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    <h3>Lista em JS (Array)</h3>
+
+    <label for="ipt_produto">Produto</label> <br>
+    <input type="text" id="ipt_produto"> <br><br>
+
+    <button onclick="adicionar()">ADICIONAR</button> <br><br>
+    <button onclick="remover()">REMOVER</button> <br><br>
+    <button onclick="analisar()">ANALISAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let lista = ['a', 'b', 'c']; // ARRAY GLOBAL
+
+    function adicionar() {
+        let produto = ipt_produto.value;
+
+        lista.push(produto);
+
+        console.log(lista);
+
+        msg.innerHTML = lista.toString().replaceAll(',', '<br>');
+
+        // toString : transforma a exibição da lista em texto
+    }
+
+    function remover() {
+        lista.pop();
+
+        console.log(lista);
+
+        msg.innerHTML = `${lista}`.replaceAll(',', '<br>');
+    }
+
+    function analisar() {
+        let tamanho = lista.length;
+        let primeira = lista.at(0);
+        let terceiro = lista.at(2);
+        let ultimo = lista.at(tamanho - 1);
+
+        msg.innerHTML = `
+            TAMANHO LISTA: ${tamanho} <br>
+            PRIMEIRO PRODUTO: ${primeira} <br>
+            TERCEIRO PRODUTO: ${terceiro} <br>
+            ÚLTIMO PRODUTO: ${ultimo}`;
+    }
+</script>
