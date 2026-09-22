@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Favoritos: Seus Filmes em Destaque</title>
+</head>
+<body>
+    <h3>Painel de Favoritos: Seus Filmes em Destaque</h3>
+
+    <label for="ipt_filmes">Digite o filme (mais favorito ao menos favorito)</label> <br>
+    <input type="text" id="ipt_filmes"> <br><br>
+
+    <button onclick="cadastrarFilme()">CADASTRAR FILME</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrarFilme() {
+        let filme = ipt_filmes.value;
+
+        let filme_lower = filme.toLowerCase();
+
+        lista.push(filme_lower);
+
+        let tamanho = lista.length;
+
+        let primeiro = lista.at(0);
+
+        let terceiro = lista.at(2);
+
+        msg.innerHTML = `Seu filme favorito: ${primeiro} <br>`;
+
+        if (tamanho >= 3) {
+            msg.innerHTML += `Seu 3º filme favorito: ${terceiro} <br>`;
+        } else {
+            msg.innerHTML += `Seu 3º filme favorito: Ainda não existe <br>`;
+        }
+
+        msg.innerHTML += `Total de filmes cadastrados: ${tamanho}`
+    }
+</script>
