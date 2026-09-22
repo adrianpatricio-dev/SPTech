@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Viva de Filmes Favoritos</title>
+</head>
+<body>
+    <h3>Lista Viva de Filmes Favoritos</h3>
+
+    <label for="ipt_filmes">Digite os filmes</label> <br>
+    <input type="text" id="ipt_filmes"> <br><br>
+
+    <button onclick="cadastrarFilme()">CADASTRAR FILME</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrarFilme() {
+        let filmes = ipt_filmes.value;
+
+        ipt_filmes.value = '';
+        ipt_filmes.focus();
+
+        lista.push(filmes);
+
+        msg.innerHTML = `${lista}`.replaceAll(',', '<br>');
+    }
+</script>
