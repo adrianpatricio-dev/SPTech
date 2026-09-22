@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Viagens: Do Primeiro ao Último Destino</title>
+</head>
+<body>
+    <h3>Diário de Viagens: Do Primeiro ao Último Destino</h3>
+
+    <label for="ipt_detinoViagem">Destino de viagem</label> <br>
+    <input type="text" id="ipt_detinoViagem"> <br><br>
+
+    <button onclick="adicionar()">ADICIONAR</button> <br><br>
+
+    <button onclick="primeiraViagem()">PRIMEIRA VIAGEM</button> <br><br>
+
+    <button onclick="terceiraViagem()">TERCEIRA VIAGEM</button> <br><br>
+
+    <button onclick="ultimaViagem()">ÚLTIMA VIAGEM</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function adicionar() {
+        let destinoViagem = ipt_detinoViagem.value;
+
+        let destino_lower = destinoViagem.toLowerCase();
+
+        lista.push(destino_lower);
+    }
+
+    function primeiraViagem() {
+        let primeira = lista.at(0);
+
+        if (primeira) {
+            msg.innerHTML = `Primeira viagem: ${primeira}`;
+        } else {
+            msg.innerHTML = `Ainda não viajou`;
+        }
+    }
+
+    function terceiraViagem() {
+        let terceira = lista.at(2);
+
+        if (terceira) {
+            msg.innerHTML = `Terceira viagem: ${terceira}`;
+        } else {
+            msg.innerHTML = `Ainda não viajou`;
+        }
+    }
+
+    function ultimaViagem() {
+        let tamanho = lista.length;
+
+        let ultima = lista.at(tamanho - 1);
+
+        if (ultima) {
+            msg.innerHTML = `Última viagem: ${ultima}`;
+        } else {
+            msg.innerHTML = `Ainda não viajou`;
+        }
+    }
+</script>
