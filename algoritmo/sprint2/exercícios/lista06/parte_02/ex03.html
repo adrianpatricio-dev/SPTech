@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relembrando Moradias: Onde Você Já Viveu?</title>
+</head>
+<body>
+    <h3>Relembrando Moradias: Onde Você Já Viveu?</h3>
+
+    <label for="ipt_bairros">Bairros onde morou</label> <br>
+    <input type="text" id="ipt_bairros"> <br><br>
+
+    <button onclick="cadastrarBairro()">CADASTRAR BAIRRO</button> <br><br>
+
+    <label for="ipt_numeroBairro">Digite um número</label> <br>
+    <input type="text" id="ipt_numeroBairro"> <br><br>
+
+    <button onclick="informarBairro()">INFORMAR BAIRRO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let lista = [];
+
+    function cadastrarBairro() {
+        let bairros = ipt_bairros.value;
+
+        let bairros_lower = bairros.toLowerCase();
+
+        lista.push(bairros_lower);
+    }
+
+    function informarBairro() {
+        let numeroBairro = Number(ipt_numeroBairro.value);
+
+        let tamanho = lista.length;
+
+        if (numeroBairro > tamanho) {
+            msg.innerHTML = `Você ainda não morou num ${numeroBairro}º bairro!`;
+        } else {
+            if (numeroBairro > 0) {
+                let numero = lista.at(numeroBairro - 1);
+
+                msg.innerHTML = `${numeroBairro}º BAIRRO: ${numero}`;
+            }
+        }
+    }
+</script>
