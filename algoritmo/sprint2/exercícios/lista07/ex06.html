@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Números Cabalísticos</title>
+</head>
+<body>
+    <h3>Filtro de Números Cabalísticos</h3>
+
+    <button onclick="filtrar()">FILTRAR NÚMEROS CABALÍSTICOS</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function filtrar() {
+        let index = 1;
+
+        let mensagem = '';
+
+        while (index <= 30) {
+
+             if (index != 3 && index != 4 && index != 7 && index != 10 && index != 12) {
+
+                mensagem += `${index}<br>`;
+
+            }
+
+            index ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
