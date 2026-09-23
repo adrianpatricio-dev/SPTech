@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Colorida</title>
+</head>
+<body>
+    <h3>Tabuada Colorida</h3>
+
+    <label for="slc_tabuada">Tabuada</label> <br>
+    <select id="slc_tabuada">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+    </select> <br><br>
+
+    <label for="ipt_intervalo">Até que número a tabuada deve ser construída?</label> <br>
+    <input type="text" id="ipt_intervalo"> <br><br>
+
+    <button onclick="verTabuada()">VER TABUADA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verTabuada() {
+        let tabuada = Number(slc_tabuada.value);
+        let intervalo = Number(ipt_intervalo.value);
+
+        let indice = 1;
+
+        let mensagem = '';
+
+        while (indice <= intervalo) {
+            let resultado = tabuada * indice;
+            
+            if (indice % 2 == 0) {
+                mensagem += `<span style="color: blue;">${tabuada} x ${indice} = ${resultado}</span><br>`;
+            } else {
+                mensagem += `<span style="color: red;">${tabuada} x ${indice} = ${resultado}</span><br>`;
+            }
+
+            indice ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
