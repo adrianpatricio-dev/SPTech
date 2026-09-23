@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Múltiplos de 5</title>
+    <title>Viva o 7!</title>
 </head>
 <body>
-    <h3>Múltiplos de 5</h3>
+    <h3>Viva o 7!</h3>
 
-    <label for="ipt_numero">Digite um número</label> <br>
+    <label for="ipt_numero">Digite um número (0 a 200)</label> <br>
     <input type="text" id="ipt_numero"> <br><br>
 
-    <button onclick="mostrar()">ADORO MÚLTIPLOS DE 5</button> <br><br>
+    <button onclick="mostrar()">VIVA O 7!</button> <br><br>
 
     <span id="msg"></span>
 </body>
@@ -25,13 +25,13 @@
 
         let mensagem = '';
 
-        if (numero < 20 || numero > 100) {
-            msg.innerHTML = 'Número fora do intervalo (20 a 100)';
+        if (numero < 0 || numero > 200) {
+            msg.innerHTML = 'Número fora do intervalo (0 a 200)';
         } else {
 
             while (indice <= numero) {
-                
-                if (indice % 5 == 0) {
+
+                if (indice % 7 == 0) {
                     mensagem += `${indice}<br>`;
                 }
 
