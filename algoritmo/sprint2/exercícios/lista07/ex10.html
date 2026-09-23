@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares no Intervalo</title>
+</head>
+<body>
+    <h3>S2 Pares</h3>
+
+    <label for="ipt_numero1">Digite um numero</label> <br>
+    <input type="text" id="ipt_numero1"> <br>
+
+    <label for="ipt_numero2">Digite o segundo numero</label> <br>
+    <input type="text" id="ipt_numero2"> <br><br>
+
+    <button onclick="mostrarPares()">S2 PARES</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrarPares() {
+        let comeco = Number(ipt_numero1.value);
+        let termino = Number(ipt_numero2.value);
+
+        let mensagem = '';
+
+        while (comeco <= termino) {
+
+            if (comeco % 2 == 0) {
+
+                mensagem += `${comeco}<br>`;
+
+            }
+
+            comeco ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
