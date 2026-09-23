@@ -1,0 +1,45 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Corrida de Voltas</title>
+    </head>
+    <body>
+        <h3>Corrida de Voltas</h3>
+
+        <label for="ipt_voltas">Quantas voltas um carro dará numa corrida?</label> <br>
+        <input type="text" id="ipt_voltas"> <br><br>
+
+        <button onclick="iniciarCorrida()">INICIAR CORRIDA!</button> <br><br>
+
+        <span id="msg"></span>
+    </body>
+    </html>
+
+    <script>
+        function iniciarCorrida() {
+            let voltas = Number(ipt_voltas.value);
+
+            ipt_voltas.value = '';
+            ipt_voltas.focus();
+             
+            let indice = 1;
+
+            let mensagem = '';
+
+            if (voltas > 0) {
+
+                while (indice <= voltas) {
+                    mensagem += `Carro dando a ${indice}ª volta<br>`;
+
+                    indice ++;
+                }
+
+                msg.innerHTML = mensagem;
+
+            } else {
+                msg.innerHTML = `O número e voltas não pode ser negativo`;
+            }
+        }
+    </script>
