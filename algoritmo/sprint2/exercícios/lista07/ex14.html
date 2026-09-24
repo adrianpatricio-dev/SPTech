@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisibilidade</title>
+</head>
+<body>
+    <h3>Divisibilidade</h3>
+
+    <label for="ipt_numero1">Número 01</label> <br>
+    <input type="text" id="ipt_numero1"> <br>
+
+    <label for="ipt_numero2">Número 02</label> <br>
+    <input type="text" id="ipt_numero2"> <br>
+
+    <label for="ipt_teste">Número para teste de visbilidade</label> <br>
+    <input type="text" id="ipt_teste"> <br><br>
+
+    <button onclick="mostrar()">DIVISÍVEL</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        let numero1 = Number(ipt_numero1.value);
+        let numero2 = Number(ipt_numero2.value);
+        let teste = Number(ipt_teste.value);
+
+        let mensagem = '';
+
+        if (teste <  3 || teste > 13) {
+            msg.innerHTML = `Fora do intervalo (3 a 13)`;
+        } else {
+            let resultado = numero1 % teste;
+
+            while (numero1 <= numero2) {
+                if (resultado != 0) {
+                    mensagem += `${numero1}<br>`
+                }
+
+                numero1 ++;
+            }
+
+            msg.innerHTML = mensagem;
+        }
+    }
+</script>
