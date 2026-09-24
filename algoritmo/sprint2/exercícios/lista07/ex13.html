@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papagaio Repetitivo</title>
+</head>
+<body>
+    <h3>Papagaio Repetitivo</h3>
+
+    <label for="ipt_numero">Número</label> <br>
+    <input type="text" id="ipt_numero"> <br>
+
+    <label for="ipt_frase">Frase</label> <br>
+    <input type="text" id="ipt_frase"> <br><br>
+
+    <button onclick="mostrar()">PAPAGAIO REPETITIVO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let frase_repetida = '';
+
+    function mostrar() {
+        let numero = Number(ipt_numero.value);
+        let frase = ipt_frase.value;
+
+        let indice = 1;
+
+        let mensagem = '';
+
+        while (indice <= numero) {
+            frase_repetida += `${frase} `;
+
+            mensagem += `${indice} - ${frase_repetida} <br>`;
+
+            indice ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
