@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um elefante, incomoda muita gente...</title>
+</head>
+<body>
+    <h3>Um elefante, incomoda muita gente...</h3>
+
+    <label for="ipt_elefantes">Quantidade de elefantes</label> <br>
+    <input type="text" id="ipt_elefantes"> <br><br>
+
+    <button onclick="atazanar()">ATAZANAR A MÉDIUM</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function atazanar() {
+        let elefantes = Number(ipt_elefantes.value);
+
+        let indice = 2;
+
+        let mensagem = '';
+
+        let frase_repetida = '';
+
+        while (indice <= elefantes) {
+            frase_repetida += 'incomodam, '; 
+
+            mensagem += `
+                1 elefante incomoda muita gente!<br>
+                ${indice} elefantes incomodam, ${frase_repetida} muito mais!<br><br>`;
+
+            indice ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
