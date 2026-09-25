@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisores</title>
+</head>
+<body>
+    <label for="ipt_numero">Número</label> <br>
+    <input type="text" id="ipt_numero"> <br>
+
+    <button onclick="mostrar()">VER DIVISORES</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        let numero = Number(ipt_numero.value);
+
+        let indice = 1;
+
+        let mensagem = '';
+
+        if (numero <  0 || numero > 100) {
+            msg.innerHTML = `Fora do intervalo (0 a 100)!`;
+        } else {
+            while (indice <= numero) {
+                let resultado = numero % indice;
+
+                if (resultado == 0) {
+                    mensagem += `${indice}<br>`
+                }
+
+                indice ++;
+            }
+
+            msg.innerHTML = mensagem;
+        }
+    }
+</script>
