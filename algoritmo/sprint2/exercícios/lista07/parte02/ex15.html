@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>É tri/penta!</title>
+</head>
+<body>
+    <label for="ipt_numero1">Número 1</label> <br>
+    <input type="text" id="ipt_numero1"> <br>
+
+    <label for="ipt_numero2">Número 2</label> <br>
+    <input type="text" id="ipt_numero2"> <br><br>
+
+    <button onclick="mostrar()">CURTO 3 E 5!</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function mostrar() {
+        let numero1 = Number(ipt_numero1.value);
+        let numero2 = Number(ipt_numero2.value);
+
+        let mensagem = '';
+
+        if (numero1 > numero2) {
+            msg.innerHTML = `Intervalo não crescente`;
+        } else {
+
+            while (numero1 <= numero2) {
+                let tri = numero1 % 3;
+                let penta = numero1 % 5;
+    
+                if (tri == 0 && penta != 0) {
+                    mensagem += 'É TRI!<br>';
+                } else if (penta == 0 && penta != 0) {
+                    mensagem += 'É PENTA!<br>';
+                } else if (tri == 0 && penta == 0) {
+                    mensagem += 'É TRI! É PENTA!<br>';
+                } else {
+                    mensagem += `${numero1}<br>`;
+                }
+    
+                numero1 ++;
+            }
+
+            msg.innerHTML += mensagem;
+        }
+    }
+</script>
