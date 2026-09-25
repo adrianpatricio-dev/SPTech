@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos Pares</title>
+</head>
+<body>
+    <h3>Soma dos Pares</h3>
+
+    <label for="ipt_numero">Número</label> <br>
+    <input type="text" id="ipt_numero"> <br><br>
+
+    <button onclick="somarPares()">SOMAR PARES</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function somarPares() {
+        let numero = Number(ipt_numero.value);
+
+        let indice = 1;
+
+        let mensagem = '';
+
+        let soma = 0;
+
+        if (numero < 10 || numero > 500) {
+            mensagem = 'Fora do intervalo (10 e 500)';
+        } else {
+
+            while (indice <= numero) {
+                let resultado = indice % 2;
+
+                if (resultado == 0) {
+                    soma += indice;
+
+                    mensagem += `${indice}<br><br>`;
+                }
+
+                indice ++;
+            }
+
+            mensagem += `SOMA: ${soma}`;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
