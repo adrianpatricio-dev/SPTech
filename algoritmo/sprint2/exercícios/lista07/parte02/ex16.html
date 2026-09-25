@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino de Musculação</title>
+</head>
+<body>
+    <h3>Treino de Musculação</h3>
+
+    <label for="ipt_dias">De quantos em quantos dias faz musculação?</label> <br>
+    <input type="text" id="ipt_dias"> <br><br>
+
+    <button onclick="exibirRotina()">EXIBIR ROTINA SEMANAL</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function exibirRotina() {
+        let dias = Number(ipt_dias.value);
+
+        let indice = 0;
+
+        let mensagem = '';
+
+        while (indice < 30) {
+            let descanso = indice % dias;
+
+            if (descanso == 0) {
+                mensagem += `Dia ${indice + 1} - Musculação<br>`;
+            } else {
+                mensagem += `Dia ${indice + 1} - Comer, dormir, etc...<br>`; 
+            }
+
+            indice ++;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
