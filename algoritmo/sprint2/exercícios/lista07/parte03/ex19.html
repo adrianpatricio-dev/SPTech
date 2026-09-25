@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Primos</title>
+</head>
+<body>
+    <label for="ipt_numero">Número</label> <br>
+    <input type="text" id="ipt_numero"> <br><br>
+
+    <button onclick="verPrimo()">VER PRIMO</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verPrimo() {
+        let numero = Number(ipt_numero.value);
+
+        let indice = 1;
+
+        let quantidadeDivisores = 0;
+
+        let mensagem = `Divisores do Número ${numero} :<br>`;
+
+        while (indice <= numero) {
+            let resultado = numero % indice;
+
+            if (resultado == 0) {
+                mensagem += `${indice}<br>`;
+
+                quantidadeDivisores ++;
+            }
+
+            indice ++;
+        }
+
+        if (quantidadeDivisores == 2) {
+            mensagem += `O número ${numero} é um número primo.`;
+        }
+            
+        msg.innerHTML = mensagem;
+    }
+</script>
