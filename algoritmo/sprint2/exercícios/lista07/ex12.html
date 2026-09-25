@@ -22,13 +22,22 @@
     function mostrar() {
         let numero = Number(ipt_numero.value);
         let frase = ipt_frase.value;
-
+        
         let indice = 1;
+        let indice2 = 1;
+        
+        let frase_repetida = '';
 
         while (indice <= numero) {
-            alert(`${indice}) ${frase}`);
+            frase_repetida += `${frase} `;
 
             indice ++;
+        }
+
+        while (indice2 <= numero) {
+            alert(`${indice2}) ${frase_repetida}`);
+
+            indice2 ++;
         }
     }
 </script>
