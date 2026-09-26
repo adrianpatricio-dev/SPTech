@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem dos Múltiplos</title>
+</head>
+<body>
+    <h3>Contagem dos Múltiplos</h3>
+
+    <label for="ipt_numero1">Número 1</label> <br>
+    <input type="text" id="ipt_numero1"> <br>
+
+    <label for="ipt_numero2">Número 2</label> <br>
+    <input type="text" id="ipt_numero2"> <br><br>   
+
+    <button onclick="somarNumeros()">SOMAR NÚMEROS</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function somarNumeros() {
+        let final = Number(ipt_numero1.value);
+        let numero2 = Number(ipt_numero2.value);
+
+        let mensagem = '';
+
+        let indice = 1;
+
+        let soma = 0;
+
+        if (final < 0) {
+            mensagem = 'Número 1 negativo';
+        } else if (numero2 < 1 || numero2 > final) {
+            mensagem = 'Número 2 fora do intervalo';
+        } else {
+
+            while (indice <= final) {
+                let resultado = indice % numero2;
+
+                if (resultado == 0) {
+                    soma += indice;
+
+                    mensagem += `${indice}<br>`;
+                }
+
+                indice ++;
+            }
+
+            mensagem += `SOMA: ${soma}`;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
