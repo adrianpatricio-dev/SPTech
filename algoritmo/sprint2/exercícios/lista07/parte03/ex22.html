@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Simples</title>
+</head>
+<body>
+    <h3>Contagem Simples</h3>
+
+    <label for="ipt_inferior">Limite inferior da amostragem</label> <br>
+    <input type="text" id="ipt_inferior"> <br>
+
+    <label for="ipt_superior">Limite superior da amostragem</label> <br>
+    <input type="text" id="ipt_superior"> <br>
+
+    <label for="ipt_divisibilidade">Número para testar divisibilidade</label> <br>
+    <input type="text" id="ipt_divisibilidade"> <br><br>
+
+    <button onclick="contar()">CONTAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function contar() {
+        let inferior = Number(ipt_inferior.value);
+        let superior = Number(ipt_superior.value);
+        let divisibilidade = Number(ipt_divisibilidade.value);
+
+        let mensagem = '';
+
+        let resultado;
+        let media;
+        let maior;
+        let menor;
+
+        let soma = 0;
+
+        let numeroExibidos = 0;
+
+        let indice = inferior;
+
+        if (inferior < 1) {
+            mensagem = 'Limite inferior menor que zero';
+        } else if (superior < inferior || superior > 100) {
+            mensagem = 'Limite superior fora do intervalo';
+        } else if (divisibilidade < 3 || divisibilidade > 10) {
+            mensagem = 'Divisibilidade fora do intervalo (3 a 10)';
+        } else {
+            maior = 0;
+            menor = superior;
+
+            while (indice <= superior) {
+                resultado = indice % divisibilidade;
+
+                if (resultado == 0) {
+                    soma += indice;
+
+                    mensagem += `${indice}, `;
+
+                    numeroExibidos ++;
+
+                    if (indice > maior) {
+                        maior = indice;
+                    }
+
+                    if (indice < menor) {
+                        menor = indice;
+                    }
+                }
+
+                indice ++;
+            }
+
+            media = soma / numeroExibidos;
+
+            mensagem += `<br><br>QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${numeroExibidos}`;
+            mensagem += `<br>SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}`;
+            mensagem += `<br>MÉDIA DOS NÚMEROS EXIBIDOS: ${media}`;
+            mensagem += `<br>MAIOR NÚMERO EXIBIDO: ${maior}`;
+            mensagem += `<br>MENOR NÚMERO EXIBIDO: ${menor}`;
+        }
+
+        msg.innerHTML = mensagem;
+    }
+</script>
