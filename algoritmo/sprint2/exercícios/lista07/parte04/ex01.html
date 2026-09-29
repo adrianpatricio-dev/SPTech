@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão por subtrações sucessivas</title>
+</head>
+<body>
+    <h3>Divisão por subtrações sucessivas</h3>
+
+    <label for="ipt_dividendo">Dividendo</label> <br>
+    <input type="text" id="ipt_dividendo"> <br>
+
+    <label for="ipt_divisor">Divisor</label> <br>
+    <input type="text" id="ipt_divisor"> <br>
+
+    <button onclick="calcular()">CALCULAR</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        let dividendo = Number(ipt_dividendo.value);
+        let divisor = Number(ipt_divisor.value);
+
+        let mensagem = '';
+
+        let indice = 1;
+
+        let resultado = 0
+
+        if (divisor < 0) {
+            mensagem += 'Divior deve ser maior que zero!';
+        } else {
+
+            while (indice <= dividendo) {
+                dividendo -= divisor;
+
+                resultado ++;
+
+                indice ++;
+            }
+
+            mensagem += `
+                RESULTADO: ${resultado}<br>
+                RESTO DA DIVISÃO: ${dividendo}`;
+
+            msg.innerHTML = mensagem;
+        }
+    }
+</script>
