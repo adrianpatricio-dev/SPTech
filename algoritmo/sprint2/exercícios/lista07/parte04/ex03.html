@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alugueis pagos com pedras de ouro.</title>
+</head>
+<body>
+    <label for="ipt_dinheiro">Quanto tem em dinheiro?</label> <br>
+    <input type="text" id="ipt_dinheiro"> <br>
+
+    <label for="ipt_pedras">Quantas pedras de ouro possui?</label> <br>
+    <input type="text" id="ipt_pedras"> <br>
+
+    <label for="ipt_aluguel">Valor do aluguel</label> <br>
+    <input type="text" id="ipt_aluguel"> <br>
+
+    <label for="ipt_MesesAluguelPorAno">Quantos meses de aluguél pagará por ano?</label> <br>
+    <input type="text" id="ipt_MesesAluguelPorAno"> <br>
+
+    <label for="ipt_anosPretendeViver">Quantos anos pretende viver?</label> <br>
+    <input type="text" id="ipt_anosPretendeViver"> <br><br>
+
+    <button onclick="calcularAluguel()">CALCULAR ALUGUEL</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function calcularAluguel() {
+        let dinheiro = Number(ipt_dinheiro.value);
+        let pedras = Number(ipt_pedras.value);
+        let aluguel = Number(ipt_aluguel.value);
+        let mesesAluguelPorAno = Number(ipt_MesesAluguelPorAno.value);
+        let anosPretendeViver = Number(ipt_anosPretendeViver.value);
+
+        let indice_ano = 1;
+        let indice_meses = 1;
+
+        let valor_uma_pedra = 10000;
+
+        let mensagem = '';
+
+        while (indice_ano <= anosPretendeViver) {
+            mensagem += `Ano - 0${indice_ano}`;
+
+            // if (indice_meses > mesesAluguelPorAno) {
+            //     indice_meses = 1;
+                
+                // if (aluguel > dinheiro) {
+                //     dinheiro += valor_uma_pedra;
+                //     pedras --;
+
+                //     aluguel -= dinheiro
+
+                //     dinheiro -= aluguel;
+                // }
+
+                while (indice_meses <= mesesAluguelPorAno) {
+                    
+                
+                    mensagem += `
+                        Mês 0${indice_meses} 
+                        saldo inicial no banco R$ ${dinheiro} - 
+                        saldo de pedras = 99 – 
+                        saldo final no banco - R$ 9999,99`;
+    
+                    indice_meses ++;
+        
+                }
+            }
+
+            indice_ano ++;
+        }
+
+        msg.innerHTML = mensagem;
+</script>
+
