@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetar Juros Compostos</title>
+</head>
+<body>
+    <h3>Projetar Juros Compostos</h3>
+    
+    <label for="ipt_deposito">Entre com o valor mensal de depósito:</label>
+    <input id="ipt_deposito" type="number"> <br>
+
+    <label for="ipt_meses">Entre com a quantidade de meses:</label>
+    <input id="ipt_meses" type="number"> <br>
+
+    <label for="ipt_juros">Entre com o percentual de juros:</label>
+    <input id="ipt_juros" type="number"> <br><br>
+
+    <label for="ipt_sonho">Qual é o seu sonho:</label>
+    <input id="ipt_sonho"> <br>
+
+    <label for="ipt_valorSonho">Qual o valor do seu sonho: </label>
+    <input id="ipt_valorSonho" type="number">
+
+    <button onclick="projetar()">PROJETAR</button> <br><br>
+
+    <div id="msg"></div>
+</body>
+</html>
+
+<script>
+    function projetar() {
+        let deposito = Number(ipt_deposito.value);
+        let meses = ipt_meses.value;
+        let juros = Number(ipt_juros.value);
+        let sonho = ipt_sonho.value;
+        let valorSonho = Number(ipt_valorSonho.value);
+
+        let tamanho_sonho = sonho.length;
+
+        let meses_inteiro = meses.includes(',' || '.');
+
+        let valor_juros = 0;
+        let valor_inicial = 0;
+        let valor_total = 0;
+
+        let indice = 1;
+
+        let mensagem = '';
+
+        if (
+            deposito > 0 && 
+            meses > 0 &&
+            !meses_inteiro &&
+            juros > 0 && 
+            juros < 10 &&
+            tamanho_sonho >= 3 &&
+            valorSonho > deposito
+        ) {
+            juros /= 100;
+
+            while (indice <= meses) {
+                valor_inicial = valor_total;
+                valor_juros = juros;
+                valor_juros *= valor_inicial;
+                valor_total = valor_total + (valor_juros + deposito);
+                
+                mensagem += `
+                    Mês - ${indice} - 
+                    Valor inicial - ${valor_inicial.toFixed(2)} -
+                    Juros - ${valor_juros.toFixed(2)} -
+                    Depósito - ${deposito} -
+                    Valor Final - ${valor_total.toFixed(2)}<br><br>`;
+
+                indice ++;
+            }
+
+            let valor = 0;
+
+            if (valor_total > valorSonho) {
+                valor = valor_total - valorSonho;
+
+                mensagem += `<br><br><b style="color: green">Parabéns você é um POUPADOR, além do seu sonho de ${sonho} ainda sobrou R$ ${valor.toFixed(2)} para outras aquisições</b>`;
+            } else {
+                valor = valorSonho - valor_total;
+
+                mensagem += `<br><br><b style="color: red">Você precisa poupar um pouco mais. Para o sonho de ${sonho} ainda falta R$ ${valor.toFixed(2)}</b>`;
+            }
+
+            msg.innerHTML = mensagem;
+        }
+    }
+</script>
