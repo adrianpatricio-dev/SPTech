@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coelho e a Tartaruga</title>
+</head>
+<body>
+    <h3>Coelho e a Tartaruga</h3>
+
+    <label for="ipt_pista">O tamanho da pista(em metros)</label> <br>
+    <input type="text" id="ipt_pista"> <br>
+
+    <label for="ipt_tartaruga">Quantos metros a tartaruga anda por rodada?</label> <br>
+    <input type="text" id="ipt_tartaruga"> <br>
+
+    <label for="ipt_coelho">Quantos metros o coelho anda por rodada?</label> <br>
+    <input type="text" id="ipt_coelho"> <br>
+
+    <label for="ipt_rodadas_dormindo">A cada quantas rodadas o coelho dorme?</label> <br>
+    <input type="text" id="ipt_rodadas_dormindo"> <br><br>
+
+    <button onclick="darALargada()">DAR A LARGADA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    let valido = true;
+
+    function darALargada() {
+        let pista = Number(ipt_pista.value);
+        let tartaruga = Number(ipt_tartaruga.value);
+        let coelho = Number(ipt_coelho.value);
+        let rodadas_dormindo = Number(ipt_rodadas_dormindo.value);
+
+        let distancia_tartaruga = 0;
+        let distancia_coelho = 0;
+        let rodadas = 0;
+        let qtd_rodadas_dormidas = 0
+
+        let mensagem = '';
+
+        valido = true;
+        validar();
+
+        if (valido) {
+            
+            while (distancia_tartaruga <= pista && distancia_coelho <= pista) {
+                distancia_tartaruga += tartaruga;
+    
+                rodadas ++;
+    
+                if (rodadas % rodadas_dormindo == 0) {
+                    mensagem += `
+                        Rodada ${rodadas}: 
+                        Tartarugo ${distancia_tartaruga} m | 
+                        Coelhildo ${distancia_coelho} m -
+                        Coelho dormindo (zzz...)<br>`;
+
+                    qtd_rodadas_dormidas ++;
+                } else {
+                    distancia_coelho += coelho;
+    
+                    mensagem += `
+                        Rodada ${rodadas}: 
+                        Tartarugo ${distancia_tartaruga} m | 
+                        Coelhildo ${distancia_coelho} m<br>`;
+                }
+            }
+
+            let porcentagem_rodadas_dormidas = (qtd_rodadas_dormidas / rodadas) * 100;
+
+            if (distancia_tartaruga >= pista && distancia_coelho >= pista) {
+                mensagem += `
+                    <br>Resultado:
+                    <br>Empate na rodada ${rodadas}!<br>`;
+            } else if (distancia_tartaruga >= pista) {
+                let porcentagem_coelho = (distancia_coelho / pista) * 100;
+
+                mensagem += `
+                    <br>Resultado:<br>
+                    "Tartarugo Devagarinho venceu na rodada ${rodadas}!"<br>
+                    "Coelhildo Soneca completou ${porcentagem_coelho.toFixed(2)}% da pista."<br>`;
+            } else {
+                let porcentagem_tartaruga = (distancia_tartaruga / pista) * 100;
+
+                mensagem += `
+                    <br>Resultado:<br>
+                    "Coelhildo Soneca venceu na rodada ${rodadas}!<br>"
+                    "Tartarugo Devagarinho completou ${porcentagem_tartaruga.toFixed(2)}% da pista."<br>`;
+            }
+
+            mensagem += `O coelho tirou ${qtd_rodadas_dormidas} sonecas, o que representa ${porcentagem_rodadas_dormidas.toFixed(2)}% das rodadas.`;
+
+            msg.innerHTML = mensagem;
+        }
+    }
+
+    // VALIDAÇÃO DE CAMPOS
+
+    function validar() {
+        let pista = Number(ipt_pista.value);
+        let tartaruga = Number(ipt_tartaruga.value);
+        let coelho = Number(ipt_coelho.value);
+        let rodadas_dormindo = Number(ipt_rodadas_dormindo.value);
+
+        if (pista <= 0 || tartaruga <= 0 || coelho <= 0 || rodadas_dormindo <= 0) {
+            mensagem += '<br>Os valores tem que ser maior do que 0!';
+
+            valido = false;
+        }
+
+        if (tartaruga >= coelho) {
+            mensagem += '<br>A tartaruga deve ser mais lenta que o coelho!';
+
+            valido = false;
+        }
+
+        if (rodadas_dormindo < 2) {
+            mensagem += '<br>A soneca não pode ser menor do 2';
+
+            valido = false;
+        }
+    }
+</script>

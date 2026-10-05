@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasão de Impel Down</title>
+</head>
+<body>
+    <h3>Invasão de Impel Down</h3>
+
+    <label for="ipt_quantidade_batalhas">Quantidade de batalhas</label> <br>
+    <input type="text" id="ipt_quantidade_batalhas"> <br>
+
+    <label for="ipt_quantidade_marinheiros">Quantidade de marinheiros</label> <br>
+    <input type="text" id="ipt_quantidade_marinheiros"> <br>
+
+    <label for="ipt_quanidade_carnes">Quantidade de carnes</label> <br>
+    <input type="text" id="ipt_quanidade_carnes"> <br><br>
+
+    <button onclick="comecarBatalha()">COMEÇAR BATALHA</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function comecarBatalha() {
+        let quantidade_batalhas = Number(ipt_quantidade_batalhas.value);
+        let quantidade_marinheiros = Number(ipt_quantidade_marinheiros.value);
+        let quantidade_carnes = Number(ipt_quanidade_carnes.value);
+
+        let indice_qtd_batalhas = 0;
+        let indice_qtd_carne = 0;
+        let preservar_qtd_marinheiros = quantidade_marinheiros * quantidade_batalhas;
+
+        let mr = 0;
+
+        let total_vidas = 100;
+        let pontos_vida = 100;
+
+        let quantidade_marinheiros_total = quantidade_marinheiros * quantidade_batalhas;
+
+        let mensagem = '';
+
+        while (indice_qtd_batalhas < quantidade_batalhas) {
+            pontos_vida -= 10;
+
+            if (pontos_vida <= 0) {
+                while (quantidade_marinheiros_total >= quantidade_marinheiros) {
+                    quantidade_marinheiros_total -= quantidade_marinheiros;
+    
+                    pontos_vida -= 5;
+                }
+
+            }
+
+            indice_qtd_batalhas ++;
+        }
+
+        if (pontos_vida >= 0 && quantidade_marinheiros_total == 0) {
+            mensagem += `
+                Resultado: Luffy saiu vitorioso!<br>
+                Quantidade de carnes restantes: ${indice_qtd_carne}<br>
+                Quantidade de marinheiros derrotados: ${mr}<br>
+                Energia restante ao final das batalhas: ${pontos_vida}`;
+        } else {
+            mensagem += `
+                Resultado: Luffy saiu derrotado! Sobraram ${pontos_vida - total_vidas}<br>
+                Quantidade de carnes restantes: ${indice_qtd_carne}<br>
+                Quantidade de marinheiros derrotados: ${mr}<br>
+                Energia restante ao final das batalhas: ${pontos_vida}`;
+        }
+
+        msg.innerHTML = mensagem;
+
+        console.log(pontos_vida);
+    }
+</script>

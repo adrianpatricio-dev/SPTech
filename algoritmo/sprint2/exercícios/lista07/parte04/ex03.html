@@ -45,17 +45,17 @@
         while (indice_ano <= anosPretendeViver) {
             mensagem += `Ano - 0${indice_ano}`;
 
-            // if (indice_meses > mesesAluguelPorAno) {
-            //     indice_meses = 1;
+            if (indice_meses > mesesAluguelPorAno) {
+                indice_meses = 1;
                 
-                // if (aluguel > dinheiro) {
-                //     dinheiro += valor_uma_pedra;
-                //     pedras --;
+                if (aluguel > dinheiro) {
+                    dinheiro += valor_uma_pedra;
+                    pedras --;
 
-                //     aluguel -= dinheiro
+                    aluguel -= dinheiro;
 
-                //     dinheiro -= aluguel;
-                // }
+                    dinheiro -= aluguel;
+                }
 
                 while (indice_meses <= mesesAluguelPorAno) {
                     
@@ -75,5 +75,6 @@
         }
 
         msg.innerHTML = mensagem;
+    }
 </script>
 
