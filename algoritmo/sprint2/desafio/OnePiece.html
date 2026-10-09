@@ -25,54 +25,11 @@
 
 <script>
     function comecarBatalha() {
-        let quantidade_batalhas = Number(ipt_quantidade_batalhas.value);
-        let quantidade_marinheiros = Number(ipt_quantidade_marinheiros.value);
-        let quantidade_carnes = Number(ipt_quanidade_carnes.value);
+        let batalhas = Number(ipt_quantidade_batalhas.value);
+        let marinheiros = Number(ipt_quantidade_marinheiros.value);
+        let carnes = Number(ipt_quantidade_carnes.value);
 
-        let indice_qtd_batalhas = 0;
-        let indice_qtd_carne = 0;
-        let preservar_qtd_marinheiros = quantidade_marinheiros * quantidade_batalhas;
-
-        let mr = 0;
-
-        let total_vidas = 100;
-        let pontos_vida = 100;
-
-        let quantidade_marinheiros_total = quantidade_marinheiros * quantidade_batalhas;
-
-        let mensagem = '';
-
-        while (indice_qtd_batalhas < quantidade_batalhas) {
-            pontos_vida -= 10;
-
-            if (pontos_vida <= 0) {
-                while (quantidade_marinheiros_total >= quantidade_marinheiros) {
-                    quantidade_marinheiros_total -= quantidade_marinheiros;
-    
-                    pontos_vida -= 5;
-                }
-
-            }
-
-            indice_qtd_batalhas ++;
-        }
-
-        if (pontos_vida >= 0 && quantidade_marinheiros_total == 0) {
-            mensagem += `
-                Resultado: Luffy saiu vitorioso!<br>
-                Quantidade de carnes restantes: ${indice_qtd_carne}<br>
-                Quantidade de marinheiros derrotados: ${mr}<br>
-                Energia restante ao final das batalhas: ${pontos_vida}`;
-        } else {
-            mensagem += `
-                Resultado: Luffy saiu derrotado! Sobraram ${pontos_vida - total_vidas}<br>
-                Quantidade de carnes restantes: ${indice_qtd_carne}<br>
-                Quantidade de marinheiros derrotados: ${mr}<br>
-                Energia restante ao final das batalhas: ${pontos_vida}`;
-        }
-
-        msg.innerHTML = mensagem;
-
-        console.log(pontos_vida);
+        let indice_batalhas = 1;
+        let indice_mar
     }
 </script>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria Gourmet</title>
+
+    <style>
+        .img {
+            width: 100px;
+            height: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h3>Doceria Gourmet</h3>
+
+    <label for="ipt_macarons">Quantidade de macarons</label> <br>
+    <input type="text" id="ipt_macarons"> <br>
+
+    <label for="ipt_preco_macarons">Preço do macaron (unidade)</label> <br>
+    <input type="text" id="ipt_preco_macarons"> <br><br>
+
+    <label for="ipt_brigadeiros">Quantidade de brigadeiros</label> <br>
+    <input type="text" id="ipt_brigadeiros"> <br>
+
+    <label for="ipt_preco_brigadeiros">Preço do brigadeiro (unidade)</label> <br>
+    <input type="text" id="ipt_preco_brigadeiros"> <br><br>
+
+
+    <label for="ipt_cupcakes">Quantidade de cupcakes</label> <br>
+    <input type="text" id="ipt_cupcakes"> <br>
+
+    <label for="ipt_preco_cupcakes">Preço do cupcake (unidade)</label> <br>
+    <input type="text" id="ipt_preco_cupcakes"> <br><br>
+
+
+    <label for="ipt_cheesecakes">Quantidade de cheesecakes</label> <br>
+    <input type="text" id="ipt_cheesecakes"> <br>
+
+    <label for="ipt_preco_cheesecakes">Preço da cheesecake (unidade)</label> <br>
+    <input type="text" id="ipt_preco_cheesecakes"> <br><br>
+
+    <button onclick="verificarVendas()">VERIFICAR VENDAS</button> <br><br>
+
+    <span id="msg"></span>
+</body>
+</html>
+
+<script>
+    function verificarVendas() {
+        let macarons = Number(ipt_macarons.value);
+        let preco_macarons = Number(ipt_preco_macarons.value);
+
+        let brigadeiros = Number(ipt_brigadeiros.value);
+        let preco_brigadeiros = Number(ipt_preco_brigadeiros.value);
+
+        let cupcakes = Number(ipt_cupcakes.value);
+        let preco_cupcakes = Number(ipt_preco_cupcakes.value);
+
+        let cheesecakes = Number(ipt_cheesecakes.value);
+        let preco_cheesecakes = Number(ipt_preco_cheesecakes.value);
+        
+        let mensagem = '';
+
+        let quantidade_vendas = 1;
+        let total = 0;
+
+        let indice_macarons = 1;
+        let indice_brigadeiros = 1;
+        let indice_cupcakes = 1;
+        let indice_cheesecakes = 1;
+
+        if (
+            macarons < 0 &&
+            preco_macarons <= 0 &&
+            brigadeiros < 0 &&
+            preco_brigadeiros <= 0 &&
+            cupcakes < 0 &&
+            preco_cupcakes <= 0 &&
+            cheesecakes < 0 &&
+            preco_cheesecakes <= 0
+        ) {
+            mensagem = `Os números tem que ser maior que zero!`;
+        } else {
+
+            while (indice_macarons <= macarons && macarons > 0 ) {
+                mensagem += `
+                    Venda ${quantidade_vendas} - 
+                    <img src="https://cdn-icons-png.flaticon.com/512/1669/1669086.png" class="img"> - 
+                    R$${preco_macarons}<br>`;
+    
+                total += preco_macarons;
+    
+                quantidade_vendas ++;
+    
+                indice_macarons ++
+            }
+    
+            while (indice_brigadeiros <= brigadeiros && brigadeiros > 0) {
+                mensagem += `
+                    Venda ${quantidade_vendas} - 
+                    <img src="https://cdn-icons-png.flaticon.com/512/3056/3056130.png" class="img"> - 
+                    R$${preco_brigadeiros}<br>`;
+    
+                total += preco_brigadeiros;
+    
+                quantidade_vendas ++;
+    
+                indice_brigadeiros ++
+            }
+    
+            while (indice_cupcakes <= cupcakes && cupcakes > 0) {
+                mensagem += `
+                    Venda ${quantidade_vendas} - 
+                    <img src="https://cdn-icons-png.flaticon.com/512/6454/6454549.png" class="img"> - 
+                    R$${preco_cupcakes}<br>`;
+    
+                total += preco_cupcakes;
+    
+                quantidade_vendas ++;
+    
+                indice_cupcakes ++
+            }
+    
+            while (indice_cheesecakes <= cheesecakes && cheesecakes > 0) {
+                mensagem += `
+                    Venda ${quantidade_vendas} - 
+                    <img src="https://cdn-icons-png.flaticon.com/512/3565/3565269.png" class="img"> - 
+                    R$${preco_cheesecakes}<br>`;
+    
+                total += preco_cheesecakes;
+    
+                quantidade_vendas ++;
+    
+                indice_cheesecakes ++
+            }
+    
+            let pct_macarons = ((preco_macarons / total) * 100) * macarons;
+    
+            let pct_brigadeiro = ((preco_brigadeiros / total) * 100) * brigadeiros;
+    
+            let pct_cheesecake = ((preco_cheesecakes / total) * 100) * cheesecakes;
+    
+            let pct_cupcakes = ((preco_cupcakes / total) * 100) * cupcakes;
+    
+            mensagem += `<br>${macarons} Macarons representou ${pct_macarons.toFixed(2)}% da compra, ${brigadeiros} Brigadeiros representou ${pct_brigadeiro.toFixed(2)}% da compra, ${cupcakes} Cupcakes representou ${pct_cupcakes.toFixed(2)}% da compra e ${cheesecakes} Cheesecakes representou ${pct_cheesecake.toFixed(2)}% da compra que totaliza R$${total.toFixed(2)}`;
+
+        }
+
+        msg.innerHTML = mensagem;
+    }
+
+    function validar() {
+        let macarons = Number(ipt_macarons.value);
+        let preco_macarons = Number(ipt_preco_macarons.value);
+
+        let brigadeiros = Number(ipt_brigadeiros.value);
+        let preco_brigadeiros = Number(ipt_preco_brigadeiros.value);
+
+        let cupcakes = Number(ipt_cupcakes.value);
+        let preco_cupcakes = Number(ipt_preco_cupcakes.value);
+
+        let cheesecakes = Number(ipt_cheesecakes.value);
+        let preco_cheesecakes = Number(ipt_preco_cheesecakes.value);
+
+        if (
+            macarons < 0 ||
+            preco_macarons <= 0 ||
+            brigadeiros < 0 ||
+            preco_brigadeiros <= 0 ||
+            cupcakes < 0 ||
+            preco_cupcakes <= 0 ||
+            cheesecakes < 0 ||
+            preco_cheesecakes <= 0
+        ) {
+            msg.innerHTML = `Os números tem que ser maior que zero!`;
+
+            valido = false;
+        }
+    }
+</script>
